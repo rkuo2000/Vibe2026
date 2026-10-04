@@ -48,3 +48,13 @@ study controllights.md, generate a BLE smart LED Curtain controller in html
 ```
 
 #### HTML : [Surplife.html](https://github.com/rkuo2000/Vibe2026/blob/main/Surplife/Surplife.html)
+
+---
+### [Dot-Matrix Display Panel](https://rkuo2000.github.io/vibe-iPixelcolor/)
+
+#### Prompt
+```
+study https://github.com/lucagoc/pypixelcolor, and create the iPixelcolor 96x16 display panel HTML with progressive web app support
+```
+
+#### HTML : [iPixelcolor.html](https://github.com/rkuo2000/Vibe2026/blob/main/iPixelcolor/iPixelcolor.html)
