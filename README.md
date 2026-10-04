@@ -14,7 +14,7 @@ use the uploaded Prompt template, and include learning content from https://rkuo
 #### HTML: [AI ROBOT ODYSSEY · 生成式 AI × 自主機器人學習航線.html](https://github.com/rkuo2000/Vibe2026/blob/main/GEN%20AI%20ODYSSEY%20%C2%B7%20%E7%94%9F%E6%88%90%E5%BC%8F%20AI%20%E5%AD%B8%E7%BF%92%E8%88%AA%E7%B7%9A.html)
 
 ---
-### [AI ROBOT ODYSSEY](https://rkuo2000.github.io/vibe-GenAI_Odyssey/)
+### [Gen AI ODYSSEY](https://rkuo2000.github.io/vibe-GenAI_Odyssey/)
 `claude.ai` `Opus 5.5 Medium` <br>
 
 #### Prompt + [template.txt](https://github.com/rkuo2000/Vibe2026/blob/main/Prompt-AI_ROBOT_ODYSSEY.txt)
