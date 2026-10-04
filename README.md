@@ -38,7 +38,7 @@ use the uploaded Prompt template, and study [https://rkuo2000.github.io/EdgeAI-A
 ---
 ## Progressive Web App
 
-### [Surplife Smart LED Curtain](https://rkuo2000.github.io/vibe-Surplife/)
+### [Smart LED Curtain - Surplife](https://rkuo2000.github.io/vibe-Surplife/)
 `codex` `GPT-6.1 Sol` `medium`<br>
 
 #### Prompt + [controllights.md](https://github.com/rkuo2000/Vibe2026/blob/main/Surplife/controllights.md)<br>
