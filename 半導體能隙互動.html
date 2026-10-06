@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>半導體能隙互動</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F5; --panel:#FFFFFF; --ink:#16202E; --muted:#5A6577; --line:#D3D9E2;
+  --cb:#2F5FD0; --cb-soft:#DCE6FB; --vb:#B06A12; --vb-soft:#F6E6CC;
+  --ok:#0F8456; --ok-soft:#D7F1E5; --no:#7D8697; --no-soft:#E6E9EE; --gap:#F7F8FA; --hatch:#C7CEDA;
+  --num:"Sora","Noto Sans TC",system-ui,sans-serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D131C; --panel:#151E2B; --ink:#E6EBF2; --muted:#9AA5B6; --line:#283445;
+    --cb:#7298F2; --cb-soft:#1B2A4A; --vb:#E2A24C; --vb-soft:#3A2A14;
+    --ok:#3CC88C; --ok-soft:#123A2A; --no:#8994A6; --no-soft:#222C3A; --gap:#111925; --hatch:#2C394B;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D131C; --panel:#151E2B; --ink:#E6EBF2; --muted:#9AA5B6; --line:#283445;
+  --cb:#7298F2; --cb-soft:#1B2A4A; --vb:#E2A24C; --vb-soft:#3A2A14;
+  --ok:#3CC88C; --ok-soft:#123A2A; --no:#8994A6; --no-soft:#222C3A; --gap:#111925; --hatch:#2C394B;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 64px}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--cb);outline-offset:2px;border-radius:6px}
+
+header{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:end;margin-bottom:22px}
+h1{margin:0;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:.02em;line-height:1.05}
+h1 .g{display:inline-block;width:.5em;height:.9em;margin:0 .08em;vertical-align:-.08em;
+  background:repeating-linear-gradient(135deg,var(--hatch) 0 2px,transparent 2px 7px);border-top:4px solid var(--cb);border-bottom:4px solid var(--vb)}
+header p{margin:0;color:var(--muted);max-width:46ch;font-size:.95rem}
+
+h2{font-size:1.35rem;margin:0 0 4px;font-weight:700}
+.lede{margin:0 0 16px;color:var(--muted);font-size:.93rem;max-width:62ch}
+section{margin-top:40px}
+
+.lab{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}
+.stage,.side,.box{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.stage{padding:16px 16px 18px}
+.side{padding:16px;display:flex;flex-direction:column;gap:18px}
+svg#band{width:100%;height:auto;display:block}
+.svgtxt{font-family:var(--sans);fill:var(--ink)}
+.msg{min-height:1.6em;margin:4px 2px 10px;font-size:.92rem;color:var(--muted)}
+.msg b{color:var(--ink)}
+
+.ctrl-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 16px;cursor:pointer;font-weight:500;font-size:.92rem}
+.btn:hover{border-color:var(--cb)}
+.btn.primary{background:var(--cb);color:#fff;border-color:var(--cb)}
+.btn[aria-pressed="true"]{background:var(--cb-soft);border-color:var(--cb);color:var(--cb)}
+
+.slider-block{margin-top:14px}
+.slider-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.slider-head label{font-weight:700}
+.lamval{font-family:var(--num);font-weight:700;font-size:1.5rem}
+.lamval small{font-size:.9rem;color:var(--muted);font-weight:400;margin-left:2px}
+.track{position:relative;height:46px}
+.spectrum{position:absolute;left:0;right:0;top:12px;height:18px;border-radius:9px}
+.cut{position:absolute;top:2px;height:38px;width:0;border-left:2px dashed var(--ink);pointer-events:none}
+.cut span{position:absolute;top:-2px;left:5px;white-space:nowrap;font-size:.74rem;color:var(--ink);background:var(--panel);padding:0 4px;border-radius:4px;transform:translateY(-100%)}
+.cut.flip span{left:auto;right:5px}
+input[type=range]{position:absolute;left:0;right:0;top:9px;width:100%;margin:0;height:24px;background:transparent;-webkit-appearance:none;appearance:none}
+input[type=range]::-webkit-slider-runnable-track{height:24px;background:transparent}
+input[type=range]::-moz-range-track{height:24px;background:transparent}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:30px;margin-top:-3px;border-radius:5px;background:var(--panel);border:3px solid var(--ink);cursor:grab}
+input[type=range]::-moz-range-thumb{width:10px;height:26px;border-radius:5px;background:var(--panel);border:3px solid var(--ink);cursor:grab}
+.scale{display:flex;justify-content:space-between;font-size:.74rem;color:var(--muted);font-family:var(--num);margin-top:2px}
+.regions{position:relative;height:18px;font-size:.74rem;color:var(--muted)}
+.regions span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:8px;padding:3px 9px;font-size:.8rem;cursor:pointer;color:var(--muted)}
+.chip:hover{color:var(--ink);border-color:var(--ink)}
+.chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:1px}
+
+.mats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.mat{border:1px solid var(--line);background:transparent;border-radius:9px;padding:6px 0 4px;cursor:pointer;text-align:center;line-height:1.15}
+.mat b{display:block;font-family:var(--num);font-size:.98rem}
+.mat span{font-size:.7rem;color:var(--muted)}
+.mat[aria-pressed="true"]{border-color:var(--cb);background:var(--cb-soft)}
+.mat[aria-pressed="true"] b{color:var(--cb)}
+.side h3{font-size:.95rem;margin:0 0 8px}
+.matname{font-size:1.25rem;font-weight:700;margin:0}
+.matname small{font-weight:400;color:var(--muted);font-size:.85rem;margin-left:6px}
+.use{font-size:.85rem;color:var(--muted);margin:2px 0 0}
+dl.read{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:12px 0 0;font-size:.9rem}
+dl.read dt{color:var(--muted)}
+dl.read dd{margin:0;text-align:right;font-family:var(--num);font-weight:600}
+.verdict{border-radius:12px;padding:14px;transition:background .25s}
+.verdict.ok{background:var(--ok-soft)}
+.verdict.no{background:var(--no-soft)}
+.verdict .big{font-family:var(--num);font-size:2.1rem;font-weight:700;line-height:1}
+.verdict .big small{font-size:1rem;font-weight:400}
+.verdict .cmp{font-family:var(--num);font-size:.95rem;margin:6px 0 4px}
+.verdict .state{font-weight:700;font-size:1.05rem}
+.verdict.ok .state{color:var(--ok)}
+.verdict.no .state{color:var(--no)}
+.verdict p{margin:4px 0 0;font-size:.85rem;color:var(--muted)}
+
+/* comparison */
+.box{padding:18px}
+.cmp-grid{position:relative}
+.row{display:grid;grid-template-columns:96px 1fr 120px;gap:12px;align-items:center;padding:5px 0;cursor:pointer;border-radius:8px}
+.row:hover .rname{color:var(--cb)}
+.rname{font-weight:700;font-size:.9rem}
+.rname small{display:block;font-weight:400;color:var(--muted);font-size:.72rem}
+.bar-track{position:relative;height:20px;background:var(--gap);border-radius:5px}
+.bar{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--no);transition:background .2s}
+.bar.ok{background:var(--ok)}
+.row.sel .bar-track{box-shadow:0 0 0 2px var(--cb)}
+.rinfo{font-family:var(--num);font-size:.82rem;text-align:right;color:var(--muted)}
+.rinfo b{color:var(--ink)}
+.eline{position:absolute;top:-6px;bottom:22px;width:0;border-left:2px solid var(--ink);pointer-events:none}
+.eline span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-family:var(--num);font-size:.75rem;white-space:nowrap;background:var(--ink);color:var(--panel);padding:0 6px;border-radius:4px}
+.axis{display:grid;grid-template-columns:96px 1fr 120px;gap:12px;margin-top:4px}
+.axis div{position:relative;height:16px;font-family:var(--num);font-size:.72rem;color:var(--muted)}
+.axis span{position:absolute;transform:translateX(-50%)}
+.legend{display:flex;gap:18px;font-size:.82rem;color:var(--muted);margin-top:12px;flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.calc h3{margin:0 0 10px;font-size:1rem}
+.field{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.field input{width:120px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-family:var(--num);font-size:1.05rem}
+.field .unit{color:var(--muted)}
+.steps{margin:14px 0 0;padding:12px 14px;background:var(--paper);border-radius:10px;font-family:var(--num);font-size:.9rem;line-height:1.9;overflow-x:auto}
+.steps .res{font-weight:700}
+.err{color:#C2412D;font-size:.85rem;margin:6px 0 0;min-height:1.2em}
+.swatch{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:4px;border:1px solid var(--line)}
+
+/* quiz */
+.quiz{max-width:720px}
+.qhead{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.qbar{height:5px;background:var(--gap);border-radius:3px;overflow:hidden;margin-bottom:16px}
+.qbar div{height:100%;background:var(--cb);transition:width .3s}
+.qtext{font-size:1.12rem;font-weight:500;margin:0 0 14px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:10px 14px;cursor:pointer;font-size:.97rem}
+.opt:hover:not(:disabled){border-color:var(--cb)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:#C2412D;background:color-mix(in srgb,#C2412D 12%,var(--panel))}
+.feedback{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--paper);font-size:.92rem}
+.feedback b{display:block;margin-bottom:2px}
+.qfoot{margin-top:14px;display:flex;justify-content:flex-end}
+.score{font-family:var(--num);font-size:3rem;font-weight:700;line-height:1}
+.score small{font-size:1.1rem;color:var(--muted);font-weight:400}
+
+@media (max-width:900px){
+  .lab{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  header{grid-template-columns:1fr}
+  .mats{grid-template-columns:repeat(5,1fr)}
+  .row,.axis{grid-template-columns:62px 1fr 74px;gap:8px}
+  .rname small{display:none}
+  .rinfo .lc{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>半導體<span class="g" aria-hidden="true"></span>能隙互動</h1>
+  <p>選一種半導體，拖動波長，看光子能量能不能跨過能隙，把價帶的電子推進導帶。</p>
+</header>
+
+<div class="lab">
+  <div class="stage">
+    <svg id="band" viewBox="0 0 640 330" role="img" aria-label="能帶圖與電子躍遷動畫">
+      <defs>
+        <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="8" height="8" fill="var(--gap)"/>
+          <line x1="0" y1="0" x2="0" y2="8" stroke="var(--hatch)" stroke-width="2"/>
+        </pattern>
+        <marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
+        </marker>
+      </defs>
+      <g id="axis"></g>
+      <rect id="cbRect" x="80" width="470" rx="6" fill="var(--cb-soft)" stroke="var(--cb)" stroke-width="1.5"/>
+      <text id="cbLbl" x="92" class="svgtxt" font-size="14" font-weight="700" fill="var(--cb)">導帶 CB</text>
+      <rect id="gapRect" x="80" width="470" fill="url(#hatch)"/>
+      <line id="egLine" x1="520" x2="520" stroke="var(--ink)" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+      <text id="egLbl" x="512" text-anchor="end" class="svgtxt" font-size="13" font-weight="700"></text>
+      <rect id="vbRect" x="80" width="470" rx="6" fill="var(--vb-soft)" stroke="var(--vb)" stroke-width="1.5"/>
+      <text id="vbLbl" x="92" class="svgtxt" font-size="14" font-weight="700" fill="var(--vb)">價帶 VB</text>
+      <g id="holes"></g>
+      <g id="electrons"></g>
+      <g id="fx"></g>
+      <g id="photons"></g>
+      <line id="phArrow" x1="590" x2="590" stroke-width="5" stroke-linecap="round" marker-end="url(#ah)"/>
+      <text x="590" y="326" text-anchor="middle" class="svgtxt" font-size="11" fill="var(--muted)" style="fill:var(--muted)">光子 E</text>
+    </svg>
+    <p class="msg" id="msg" aria-live="polite">按「射入一個光子」，或開啟連續照射。</p>
+    <div class="ctrl-row">
+      <button class="btn primary" id="fireBtn">射入一個光子</button>
+      <button class="btn" id="autoBtn" aria-pressed="false">連續照射</button>
+      <button class="btn" id="resetBtn">重設電子</button>
+    </div>
+
+    <div class="slider-block">
+      <div class="slider-head">
+        <label for="lam">入射光波長 λ</label>
+        <span class="lamval"><span id="lamOut">550</span><small>nm</small></span>
+      </div>
+      <div class="track">
+        <div class="spectrum" id="spectrum"></div>
+        <div class="cut" id="cut"><span id="cutLbl"></span></div>
+        <input type="range" id="lam" min="200" max="2000" step="1" value="550">
+      </div>
+      <div class="scale"><span>200</span><span>650</span><span>1100</span><span>1550</span><span>2000 nm</span></div>
+      <div class="regions"><span style="left:5%">紫外</span><span style="left:12.5%">可見光</span><span style="left:60%">紅外</span></div>
+      <div class="presets" id="presets"></div>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div>
+      <h3>選擇半導體材料</h3>
+      <div class="mats" id="mats"></div>
+    </div>
+    <div>
+      <p class="matname" id="matName"></p>
+      <p class="use" id="matUse"></p>
+      <dl class="read">
+        <dt>能隙 Eg</dt><dd id="rEg"></dd>
+        <dt>能隙類型</dt><dd id="rType"></dd>
+        <dt>吸收截止波長 λc</dt><dd id="rCut"></dd>
+        <dt>光區</dt><dd id="rRegion"></dd>
+      </dl>
+    </div>
+    <div class="verdict" id="verdict" aria-live="polite">
+      <div class="big"><span id="vE"></span> <small>eV</small></div>
+      <div class="cmp" id="vCmp"></div>
+      <div class="state" id="vState"></div>
+      <p id="vNote"></p>
+    </div>
+  </aside>
+</div>
+
+<section>
+  <h2>能隙比較</h2>
+  <p class="lede">黑線是目前光子的能量。長條比黑線短的材料，能隙小於光子能量，會吸收這道光。點任一列可切換材料。</p>
+  <div class="box">
+    <div class="cmp-grid" id="cmpGrid"></div>
+    <div class="axis"><div></div><div id="axisTicks"></div><div></div></div>
+    <div class="legend">
+      <span><i style="background:var(--ok)"></i>吸收（E ≥ Eg）</span>
+      <span><i style="background:var(--no)"></i>穿透（E &lt; Eg）</span>
+      <span>右欄：能隙 / 截止波長</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>光子能量計算</h2>
+  <p class="lede">光子能量 E = hν = hc / λ。以電子伏特表示時，hc ≈ 1240 eV·nm，所以 E(eV) ≈ 1240 / λ(nm)。</p>
+  <div class="box calc">
+    <div>
+      <h3>由波長求光子能量</h3>
+      <div class="field">
+        <label for="cLam">λ =</label>
+        <input id="cLam" type="number" min="1" step="any" value="550" inputmode="decimal">
+        <span class="unit">nm</span>
+        <button class="chip" id="cLamSync">用滑桿目前的波長</button>
+      </div>
+      <p class="err" id="cLamErr"></p>
+      <div class="steps" id="cLamOut"></div>
+    </div>
+    <div>
+      <h3>由能隙求吸收截止波長</h3>
+      <div class="field">
+        <label for="cEg">Eg =</label>
+        <input id="cEg" type="number" min="0.01" step="any" value="1.12" inputmode="decimal">
+        <span class="unit">eV</span>
+        <button class="chip" id="cEgSync">用目前選的材料</button>
+      </div>
+      <p class="err" id="cEgErr"></p>
+      <div class="steps" id="cEgOut"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>互動測驗</h2>
+  <p class="lede">8 題，每次重新出題，部分題目會隨機產生材料與波長。</p>
+  <div class="box quiz" id="quiz"></div>
+</section>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+const HC = 1239.84;            // eV·nm
+const h = 6.62607015e-34, c = 2.99792458e8, q = 1.602176634e-19;
+const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const MATS = [
+  {f:'Ge',  name:'鍺',      eg:0.66, direct:false, use:'紅外光偵測器、早期電晶體'},
+  {f:'Si',  name:'矽',      eg:1.12, direct:false, use:'積體電路、太陽能電池'},
+  {f:'InP', name:'磷化銦',  eg:1.34, direct:true,  use:'光纖通訊雷射與偵測器'},
+  {f:'GaAs',name:'砷化鎵',  eg:1.42, direct:true,  use:'紅外 LED、高頻元件、太空太陽能'},
+  {f:'CdTe',name:'碲化鎘',  eg:1.50, direct:true,  use:'薄膜太陽能電池'},
+  {f:'GaP', name:'磷化鎵',  eg:2.26, direct:false, use:'綠光、黃光指示燈 LED'},
+  {f:'SiC', name:'碳化矽 (4H)', eg:3.26, direct:false, use:'電動車功率元件'},
+  {f:'ZnO', name:'氧化鋅',  eg:3.37, direct:true,  use:'紫外光偵測、透明導電膜'},
+  {f:'GaN', name:'氮化鎵',  eg:3.40, direct:true,  use:'藍光 LED、快充功率元件'},
+  {f:'C',   name:'鑽石',    eg:5.47, direct:false, use:'深紫外偵測、高功率散熱'}
+];
+const PRESETS = [[254,'殺菌 UV 燈'],[405,'紫光雷射'],[532,'綠光雷射'],[650,'紅光雷射'],[850,'紅外 LED'],[1310,'光纖 1310'],[1550,'光纖 1550']];
+
+const S = { mat: MATS[1], lam: 550, auto: null };
+const $ = id => document.getElementById(id);
+const fmt = (x,d=2) => Number(x).toFixed(d);
+const energy = l => HC / l;
+const cutoff = eg => HC / eg;
+function region(l){ return l < 380 ? '紫外光' : l <= 750 ? '可見光' : '紅外光'; }
+
+function wlRGB(l){
+  if (l < 380){ const t = Math.max(0,(l-200)/180); return `rgb(${Math.round(60+60*t)},${Math.round(30+20*t)},${Math.round(110+90*t)})`; }
+  if (l > 780){ const t = Math.min(1,(l-780)/1220); return `rgb(${Math.round(150-90*t)},${Math.round(25-10*t)},${Math.round(25-10*t)})`; }
+  let r=0,g=0,b=0;
+  if (l<440){ r=-(l-440)/60; b=1; } else if (l<490){ g=(l-440)/50; b=1; }
+  else if (l<510){ g=1; b=-(l-510)/20; } else if (l<580){ r=(l-510)/70; g=1; }
+  else if (l<645){ r=1; g=-(l-645)/65; } else { r=1; }
+  let f = l<420 ? .3+.7*(l-380)/40 : l>700 ? .3+.7*(780-l)/80 : 1;
+  const k = v => Math.round(255*Math.pow(v*f,.8));
+  return `rgb(${k(r)},${k(g)},${k(b)})`;
+}
+function sci(x,d=3){
+  const e = Math.floor(Math.log10(Math.abs(x)));
+  const m = x/Math.pow(10,e);
+  const sup = String(e).replace(/-/g,'⁻').replace(/\d/g,ch=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[ch]);
+  return `${m.toFixed(d-1)} × 10${sup}`;
+}
+
+/* ---------- spectrum slider ---------- */
+(function(){
+  const stops=[]; for(let l=200;l<=2000;l+=10) stops.push(`${wlRGB(l)} ${((l-200)/18).toFixed(2)}%`);
+  $('spectrum').style.background = `linear-gradient(90deg,${stops.join(',')})`;
+  const p = $('presets');
+  PRESETS.forEach(([l,t])=>{
+    const b=document.createElement('button'); b.className='chip';
+    b.innerHTML=`<i style="background:${wlRGB(l)}"></i>${t} · ${l}`;
+    b.addEventListener('click',()=>{ S.lam=l; $('lam').value=l; update(); });
+    p.appendChild(b);
+  });
+})();
+
+/* ---------- material buttons ---------- */
+MATS.forEach((m)=>{
+  const b=document.createElement('button'); b.className='mat';
+  b.innerHTML=`<b>${m.f}</b><span>${fmt(m.eg)} eV</span>`;
+  b.setAttribute('aria-label',`${m.name} ${m.f}，能隙 ${m.eg} 電子伏特`);
+  b.addEventListener('click',()=>selectMat(m));
+  m.btn=b; $('mats').appendChild(b);
+});
+
+/* ---------- band diagram ---------- */
+const NS='http://www.w3.org/2000/svg';
+const K=36, VB_TOP=262, VB_BOT=318, X0=80, X1=550;
+let CB_BOT=0, CB_TOP=0;
+function el(tag,attrs,parent){ const e=document.createElementNS(NS,tag); for(const a in attrs) e.setAttribute(a,attrs[a]); if(parent) parent.appendChild(e); return e; }
+
+(function axis(){
+  const g=$('axis');
+  el('line',{x1:52,x2:52,y1:VB_TOP,y2:VB_TOP-6.3*K,stroke:'var(--line)','stroke-width':1.5},g);
+  for(let e=0;e<=6;e++){
+    const y=VB_TOP-e*K;
+    el('line',{x1:47,x2:52,y1:y,y2:y,stroke:'var(--muted)','stroke-width':1},g);
+    const t=el('text',{x:42,y:y+4,'text-anchor':'end','font-size':11,class:'svgtxt',style:'fill:var(--muted)'},g); t.textContent=e;
+  }
+  const t=el('text',{x:16,y:VB_TOP-3.2*K,'font-size':11,class:'svgtxt',style:'fill:var(--muted)',transform:`rotate(-90 16 ${VB_TOP-3.2*K})`,'text-anchor':'middle'},g);
+  t.textContent='能量 E (eV)';
+})();
+
+const electrons=[];
+(function makeElectrons(){
+  const rows=[278,300];
+  rows.forEach((y,ri)=>{
+    for(let x=104;x<=532;x+=36){
+      const hole=el('circle',{cx:x,cy:y,r:6.5,fill:'var(--panel)',stroke:'var(--ink)','stroke-width':1.6},$('holes'));
+      const e=el('circle',{cx:x,cy:y,r:7,fill:'var(--cb)'},$('electrons'));
+      electrons.push({hx:x,hy:y,x,y,el:e,hole,top:ri===0,busy:false});
+    }
+  });
+  // hole "+" signs
+  electrons.forEach(p=>{ const t=el('text',{x:p.hx,y:p.hy+4,'text-anchor':'middle','font-size':10,'font-weight':700,class:'svgtxt'},$('holes')); t.textContent='+'; });
+})();
+function placeE(p,x,y){ p.x=x; p.y=y; p.el.setAttribute('cx',x); p.el.setAttribute('cy',y); }
+
+function drawBands(){
+  const eg=S.mat.eg;
+  CB_BOT=VB_TOP-eg*K; CB_TOP=Math.max(6,CB_BOT-58);
+  const set=(id,a)=>{const e=$(id); for(const k in a) e.setAttribute(k,a[k]);};
+  set('cbRect',{y:CB_TOP,height:CB_BOT-CB_TOP});
+  set('cbLbl',{y:CB_TOP+19});
+  set('gapRect',{y:CB_BOT,height:VB_TOP-CB_BOT});
+  set('vbRect',{y:VB_TOP,height:VB_BOT-VB_TOP});
+  set('vbLbl',{y:VB_BOT+0}); $('vbLbl').setAttribute('y',VB_TOP-6);
+  set('egLine',{y1:CB_BOT+2,y2:VB_TOP-2});
+  set('egLbl',{y:(CB_BOT+VB_TOP)/2+5});
+  $('egLbl').textContent=`Eg = ${fmt(eg)} eV`;
+  $('egLbl').style.display = eg < .5 ? 'none':'';
+  $('vbLbl').setAttribute('x', 92); 
+}
+function drawArrow(){
+  const E=energy(S.lam), a=$('phArrow');
+  a.setAttribute('y1',VB_TOP); a.setAttribute('y2',Math.max(10,VB_TOP-E*K));
+  a.setAttribute('stroke',wlRGB(Math.min(Math.max(S.lam,300),900)));
+}
+
+/* tween engine */
+let tasks=[], raf=0, last=0;
+function tween(dur,fn,done){ tasks.push({t:0,dur:reduce?1:dur,fn,done}); if(!raf){ last=performance.now(); raf=requestAnimationFrame(loop);} }
+function wait(ms,done){ tasks.push({t:0,dur:ms,fn:()=>{},done}); if(!raf){ last=performance.now(); raf=requestAnimationFrame(loop);} }
+function loop(now){
+  const dt=now-last; last=now;
+  const cur=tasks; tasks=[];
+  const keep=[];
+  cur.forEach(k=>{ k.t+=dt; const p=Math.min(1,k.t/k.dur); k.fn(ease(p)); if(p<1) keep.push(k); else if(k.done) k.done(); });
+  tasks=keep.concat(tasks);
+  raf = tasks.length ? requestAnimationFrame(loop) : 0;
+}
+const ease=p=>p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+let gen=0;
+
+function photonPath(l){
+  const w=6+(Math.min(l,2000)-200)/1800*26, L=70; let d='';
+  for(let x=-L;x<=0;x+=1.5){ const env=Math.sin(Math.PI*(x+L)/L); const y=7*env*Math.sin(2*Math.PI*x/w); d+=(d?'L':'M')+x.toFixed(1)+','+y.toFixed(1); }
+  return d;
+}
+function flash(x,y,color){
+  const r=el('circle',{cx:x,cy:y,r:4,fill:'none',stroke:color,'stroke-width':3},$('fx'));
+  tween(500,p=>{ r.setAttribute('r',4+18*p); r.setAttribute('opacity',1-p); },()=>r.remove());
+}
+function say(html){ $('msg').innerHTML=html; }
+
+function fire(){
+  const my=gen, E=energy(S.lam), m=S.mat, col=wlRGB(Math.min(Math.max(S.lam,300),900));
+  const ph=el('path',{d:photonPath(S.lam),fill:'none',stroke:col,'stroke-width':2.6,'stroke-linecap':'round'},$('photons'));
+  if(E>=m.eg){
+    let pool=electrons.filter(p=>!p.busy&&p.top); if(!pool.length) pool=electrons.filter(p=>!p.busy);
+    if(!pool.length){ ph.remove(); say('價帶裡可激發的電子暫時用完了，等它們復合回來再試。'); return; }
+    const p=pool[Math.floor(Math.random()*pool.length)]; p.busy=true;
+    const sx=-10, sy=40+Math.random()*60, ang=Math.atan2(p.hy-sy,p.hx-sx)*180/Math.PI;
+    tween(750,t=>{ const x=sx+(p.hx-sx)*t, y=sy+(p.hy-sy)*t; ph.setAttribute('transform',`translate(${x},${y}) rotate(${ang})`); },()=>{
+      ph.remove(); if(my!==gen) return;
+      flash(p.hx,p.hy,col);
+      const yHi=Math.max(CB_TOP+9, VB_TOP-E*K - (p.hy-VB_TOP)*0), yEdge=CB_BOT-10;
+      const xEnd=m.direct?p.hx:p.hx+30;
+      if(!m.direct){
+        const ph2=el('path',{d:`M${p.hx-6},${(p.hy+CB_BOT)/2} q4,-6 8,0 t8,0 t8,0`,fill:'none',stroke:'var(--vb)','stroke-width':2},$('fx'));
+        const tl=el('text',{x:p.hx+24,y:(p.hy+CB_BOT)/2+4,'font-size':11,class:'svgtxt',style:'fill:var(--vb)'},$('fx')); tl.textContent='聲子';
+        tween(900,t=>{ph2.setAttribute('opacity',1-t);tl.setAttribute('opacity',1-t);},()=>{ph2.remove();tl.remove();});
+      }
+      const excess=E-m.eg;
+      say(`光子 <b>${fmt(E)} eV ≥ Eg ${fmt(m.eg)} eV</b>：電子從價帶躍遷到導帶，留下電洞（+）。`+
+          (m.direct?'直接能隙，躍遷不需要改變動量。':'間接能隙，需要聲子提供動量，所以電子斜著跳。')+
+          (excess>0.05?` 多出的 ${fmt(excess)} eV 以熱的形式散失，電子落到導帶底。`:''));
+      tween(480,t=>placeE(p,p.hx+(xEnd-p.hx)*t,p.hy+(yHi-p.hy)*t),()=>{
+        if(my!==gen) return;
+        const relax = yHi<yEdge-1;
+        tween(relax?650:1,t=>placeE(p,xEnd,yHi+(yEdge-yHi)*t),()=>{
+          if(my!==gen) return;
+          // small jitter in CB then recombine
+          wait(2600,()=>{
+            if(my!==gen) return;
+            tween(520,t=>placeE(p,xEnd+(p.hx-xEnd)*t,yEdge+(p.hy-yEdge)*t),()=>{
+              if(my!==gen) return; p.busy=false; flash(p.hx,p.hy,'var(--cb)');
+            });
+          });
+        });
+      });
+    });
+  } else {
+    const y=CB_BOT+(VB_TOP-CB_BOT)*.5 - 4 + (Math.random()*20-10);
+    flashGap();
+    tween(1300,t=>ph.setAttribute('transform',`translate(${-10+680*t},${Math.max(20,Math.min(240,y))})`),()=>ph.remove());
+    say(`光子 <b>${fmt(E)} eV &lt; Eg ${fmt(m.eg)} eV</b>：能量不足以讓電子跨過能隙，光子直接穿透材料。`);
+  }
+}
+function flashGap(){ const g=$('gapRect'); tween(600,t=>g.setAttribute('opacity',.55+.45*t)); }
+function resetElectrons(){
+  gen++; tasks=[]; if(raf){cancelAnimationFrame(raf); raf=0;}
+  $('photons').innerHTML=''; $('fx').innerHTML='';
+  electrons.forEach(p=>{p.busy=false; placeE(p,p.hx,p.hy);});
+  $('gapRect').setAttribute('opacity',1);
+}
+
+$('fireBtn').addEventListener('click',fire);
+$('resetBtn').addEventListener('click',()=>{ resetElectrons(); say('電子已回到價帶。'); });
+$('autoBtn').addEventListener('click',e=>{
+  const on=e.currentTarget.getAttribute('aria-pressed')!=='true';
+  e.currentTarget.setAttribute('aria-pressed',on);
+  if(on){ fire(); S.auto=setInterval(fire,1100); } else { clearInterval(S.auto); S.auto=null; }
+});
+
+/* ---------- comparison chart ---------- */
+const MAXE=6.2;
+const sorted=[...MATS].sort((a,b)=>a.eg-b.eg);
+sorted.forEach(m=>{
+  const r=document.createElement('div'); r.className='row'; r.tabIndex=0; r.setAttribute('role','button');
+  r.setAttribute('aria-label',`選擇 ${m.name} ${m.f}`);
+  r.innerHTML=`<div class="rname">${m.f}<small>${m.name}・${m.direct?'直接':'間接'}</small></div>
+    <div class="bar-track"><div class="bar" style="width:${m.eg/MAXE*100}%"></div></div>
+    <div class="rinfo"><b>${fmt(m.eg)}</b> eV<span class="lc"> / ${Math.round(cutoff(m.eg))} nm</span></div>`;
+  r.addEventListener('click',()=>selectMat(m));
+  r.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();selectMat(m);} });
+  m.row=r; m.bar=r.querySelector('.bar'); $('cmpGrid').appendChild(r);
+});
+const eline=document.createElement('div'); eline.className='eline'; eline.innerHTML='<span></span>'; $('cmpGrid').appendChild(eline);
+for(let e=0;e<=6;e++){ const s=document.createElement('span'); s.style.left=(e/MAXE*100)+'%'; s.textContent=e+(e===6?' eV':''); $('axisTicks').appendChild(s); }
+function placeEline(){
+  const E=energy(S.lam), track=sorted[0].row.querySelector('.bar-track');
+  const gr=$('cmpGrid').getBoundingClientRect(), tr=track.getBoundingClientRect();
+  eline.style.left=(tr.left-gr.left+Math.min(E,MAXE)/MAXE*tr.width)+'px';
+  eline.querySelector('span').textContent=fmt(E)+' eV';
+}
+window.addEventListener('resize',placeEline);
+
+/* ---------- update ---------- */
+function selectMat(m){ S.mat=m; resetElectrons(); update(); say(`已切換為 ${m.name}（${m.f}），能隙 ${fmt(m.eg)} eV。`); }
+function update(){
+  const m=S.mat, l=S.lam, E=energy(l), lc=cutoff(m.eg), ok=E>=m.eg;
+  $('lamOut').textContent=l;
+  MATS.forEach(x=>x.btn.setAttribute('aria-pressed',x===m));
+  $('matName').innerHTML=`${m.name}<small>${m.f}</small>`;
+  $('matUse').textContent='常見用途：'+m.use;
+  $('rEg').textContent=fmt(m.eg)+' eV';
+  $('rType').textContent=m.direct?'直接能隙':'間接能隙';
+  $('rCut').textContent=Math.round(lc)+' nm';
+  $('rRegion').textContent=region(lc)+'邊界';
+  $('vE').textContent=fmt(E);
+  $('vCmp').textContent=`E ${ok?'≥':'<'} Eg（${fmt(m.eg)} eV）`;
+  $('vState').textContent=ok?'會被吸收':'不吸收，穿透';
+  $('vNote').textContent=ok
+    ? `${l} nm 的${region(l)}比截止波長 ${Math.round(lc)} nm 短，能把電子推進導帶。`
+    : `${l} nm 比截止波長 ${Math.round(lc)} nm 長，再強的光也無法單光子激發。`;
+  $('verdict').className='verdict '+(ok?'ok':'no');
+  // cutoff marker
+  const cut=$('cut'), pct=(lc-200)/18;
+  if(lc>=200&&lc<=2000){ cut.style.display=''; cut.style.left=pct+'%'; cut.classList.toggle('flip',pct>70); $('cutLbl').textContent=`λc ${Math.round(lc)} nm`; } else cut.style.display='none';
+  drawBands(); drawArrow();
+  sorted.forEach(x=>{ x.bar.classList.toggle('ok',E>=x.eg); x.row.classList.toggle('sel',x===m); });
+  placeEline();
+}
+$('lam').addEventListener('input',e=>{ S.lam=+e.target.value; update(); });
+
+/* ---------- calculator ---------- */
+function calcLam(){
+  const v=parseFloat($('cLam').value), out=$('cLamOut');
+  if(!(v>0)){ $('cLamErr').textContent='請輸入大於 0 的波長（nm）。'; out.innerHTML=''; return; }
+  $('cLamErr').textContent='';
+  const lm=v*1e-9, EJ=h*c/lm, EeV=EJ/q, nu=c/lm;
+  out.innerHTML=`ν = c / λ = ${sci(c)} / ${sci(lm)} = ${sci(nu)} Hz<br>
+  E = hν = ${sci(h)} × ${sci(nu)} = ${sci(EJ)} J<br>
+  E = ${sci(EJ)} J ÷ ${sci(q)} J/eV = <span class="res">${fmt(EeV,3)} eV</span><br>
+  速算：1240 / ${v} ≈ ${fmt(1240/v,3)} eV<br>
+  <span class="swatch" style="background:${wlRGB(v)}"></span>${region(v)}`;
+}
+function calcEg(){
+  const v=parseFloat($('cEg').value), out=$('cEgOut');
+  if(!(v>0)){ $('cEgErr').textContent='請輸入大於 0 的能隙（eV）。'; out.innerHTML=''; return; }
+  $('cEgErr').textContent='';
+  const lc=HC/v;
+  const who=MATS.filter(m=>Math.abs(m.eg-v)<0.005).map(m=>m.name)[0];
+  out.innerHTML=`λc = hc / Eg = 1239.84 eV·nm / ${v} eV<br>
+  λc = <span class="res">${fmt(lc,1)} nm</span>${who?`（${who}）`:''}<br>
+  <span class="swatch" style="background:${wlRGB(lc)}"></span>截止在${region(lc)}<br>
+  波長 &lt; ${Math.round(lc)} nm 的光會被吸收，更長的會穿透。`;
+}
+$('cLam').addEventListener('input',calcLam);
+$('cEg').addEventListener('input',calcEg);
+$('cLamSync').addEventListener('click',()=>{ $('cLam').value=S.lam; calcLam(); });
+$('cEgSync').addEventListener('click',()=>{ $('cEg').value=S.mat.eg; calcEg(); });
+
+/* ---------- quiz ---------- */
+const shuffle=a=>{ a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const FIXED=[
+  {q:'半導體的「能隙 Eg」指的是什麼？',a:'價帶頂端到導帶底端之間的能量差',w:['原子核與最外層電子的距離','導帶本身的能量寬度','電子在導帶中的動能'],x:'能隙是價帶頂與導帶底之間沒有允許能態的區域，電子必須獲得至少 Eg 的能量才能跨過。'},
+  {q:'入射光的波長變長時，單一光子的能量會如何？',a:'變小',w:['變大','不變','先變大再變小'],x:'E = hc/λ，能量與波長成反比，波長越長能量越小。'},
+  {q:'為什麼矽（Si）很少用來做發光二極體？',a:'矽是間接能隙，電子電洞復合需聲子參與，發光效率很低',w:['矽的能隙太大，無法發光','矽完全不導電','矽會吸收所有可見光所以發不出光'],x:'間接能隙材料的導帶底與價帶頂動量不同，復合時要同時產生聲子，機率低，能量多變成熱。'},
+  {q:'藍光 LED 最主要使用哪一種半導體？',a:'GaN（氮化鎵）',w:['Ge（鍺）','Si（矽）','InP（磷化銦）'],x:'GaN 能隙約 3.4 eV，屬直接能隙，適合發出藍光與紫外光。'},
+  {q:'光子能量大於能隙時，多出來的能量通常會怎樣？',a:'電子在導帶中弛豫，多餘能量以熱（晶格振動）散失',w:['讓材料的能隙暫時變大','再放出一顆同樣能量的光子','直接消失，不遵守能量守恆'],x:'電子會很快「熱化」到導帶底，多餘能量交給晶格，這也是太陽能電池效率損失的來源之一。'},
+  {q:'能隙越大的材料，吸收截止波長 λc 會越？',a:'短',w:['長','不受能隙影響','固定為 1240 nm'],x:'λc = 1240 / Eg，Eg 越大，λc 越短。'},
+  {q:'鍺（Ge）能隙約 0.66 eV，它最適合用來偵測哪一類光？',a:'近紅外光（例如 1550 nm 光纖訊號）',w:['只有紫外光','只有綠光','X 射線以外的都不能'],x:'0.66 eV 對應截止波長約 1880 nm，涵蓋 1310 / 1550 nm 光纖通訊波段。'}
+];
+function genAbsorb(){
+  const m=pick(MATS), l=pick([254,365,405,532,650,850,940,1310,1550]), E=energy(l), ok=E>=m.eg;
+  return {q:`以 ${l} nm 的光照射 ${m.name}（${m.f}，Eg = ${fmt(m.eg)} eV），光會被吸收嗎？`,
+    a: ok?'會被吸收':'不會被吸收，會穿透', w:[ok?'不會被吸收，會穿透':'會被吸收', '要看光的強度才知道'],
+    x:`E = 1240 / ${l} ≈ ${fmt(E)} eV，${ok?'大於等於':'小於'} Eg ${fmt(m.eg)} eV。單一光子能不能被吸收只看能量，與光強無關。`};
+}
+function genEnergy(){
+  const l=pick([310,413,496,620,827,1240]), E=1240/l;
+  const opts=[E,E*2,E/2,E+0.6].map(v=>fmt(v)+' eV');
+  return {q:`波長 ${l} nm 的光子，能量約為多少？`,a:opts[0],w:opts.slice(1),x:`E ≈ 1240 / ${l} = ${fmt(E)} eV。`};
+}
+function genCutoff(){
+  const m=pick(MATS.filter(x=>x.f!=='C')), lc=Math.round(cutoff(m.eg));
+  const opts=[lc,Math.round(lc*0.55),Math.round(lc*1.6),Math.round(lc*2.3)].map(v=>v+' nm');
+  return {q:`${m.name}（${m.f}）的能隙為 ${fmt(m.eg)} eV，它的吸收截止波長約為？`,a:opts[0],w:opts.slice(1),x:`λc = 1240 / ${fmt(m.eg)} ≈ ${lc} nm，比這更短的波長才會被吸收。`};
+}
+let QZ={list:[],i:0,score:0};
+function newQuiz(){
+  const list=shuffle(FIXED).slice(0,5).concat([genAbsorb(),genEnergy(),genCutoff()]);
+  QZ={list:shuffle(list).map(x=>({...x,opts:shuffle([x.a,...x.w])})),i:0,score:0};
+  renderQ();
+}
+function renderQ(){
+  const box=$('quiz'), n=QZ.list.length;
+  if(QZ.i>=n){
+    const s=QZ.score, msg=s===n?'全對，能隙觀念很扎實。':s>=6?'不錯，回頭看看答錯的題目。':'再拖拖滑桿、看看動畫，然後再挑戰一次。';
+    box.innerHTML=`<div class="qhead"><span>測驗完成</span></div><div class="qbar"><div style="width:100%"></div></div>
+      <div class="score">${s}<small> / ${n}</small></div><p>${msg}</p><div class="qfoot" style="justify-content:flex-start"><button class="btn primary" id="qAgain">重新測驗</button></div>`;
+    $('qAgain').addEventListener('click',newQuiz); $('qAgain').focus(); return;
+  }
+  const Q=QZ.list[QZ.i];
+  box.innerHTML=`<div class="qhead"><span>第 ${QZ.i+1} / ${n} 題</span><span>答對 ${QZ.score} 題</span></div>
+    <div class="qbar"><div style="width:${QZ.i/n*100}%"></div></div>
+    <p class="qtext">${Q.q}</p><div class="opts" role="group"></div><div id="qfb"></div>`;
+  const opts=box.querySelector('.opts');
+  Q.opts.forEach(o=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+    b.addEventListener('click',()=>answer(b,o)); opts.appendChild(b);
+  });
+}
+function answer(btn,o){
+  const Q=QZ.list[QZ.i], right=o===Q.a; if(right) QZ.score++;
+  document.querySelectorAll('#quiz .opt').forEach(b=>{ b.disabled=true; if(b.textContent===Q.a) b.classList.add('right'); });
+  if(!right) btn.classList.add('wrong');
+  $('qfb').innerHTML=`<div class="feedback"><b style="color:${right?'var(--ok)':'#C2412D'}">${right?'答對了':'答錯了，正確答案是：'+Q.a}</b>${Q.x}</div>
+    <div class="qfoot"><button class="btn primary" id="qNext">${QZ.i+1<QZ.list.length?'下一題':'看成績'}</button></div>`;
+  $('qNext').addEventListener('click',()=>{ QZ.i++; renderQ(); });
+  $('qNext').focus();
+}
+
+/* ---------- init ---------- */
+update(); calcLam(); calcEg(); newQuiz();
+})();
+</script>
+</body>
+</html>
