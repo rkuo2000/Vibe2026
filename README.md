@@ -3,6 +3,17 @@
 ---
 ## Interactive Webpage
 
+### [SoonDaily 順報]()
+`claude.ai` `Opus 5.5 Medium` <br>
+
+#### Prompt
+```
+study webp/*.webp, and make a SoonDaily HTML with interactive content for each page
+```
+
+#### HTML : [SoonDaily-2026-10-06.html](https://github.com/rkuo2000/Vibe2026/blob/main/SoonDaily/SoonDaily-2026-10-06.html)
+
+---
 ### [AI ROBOT ODYSSEY](https://rkuo2000.github.io/vibe-AI_Robot_Odyssey/)
 `claude.ai` `Opus 5.5 Medium` <br>
 
