@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>順報 SOON · 台北順起來 2026.10.06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#E8642C; --orange-d:#C94E1A; --orange-l:#FBE3D6;
+  --teal:#2E6B5E; --navy:#1F2B4A; --olive:#B5A75C; --salmon:#E5767A;
+  --sky:#D8EEEE; --land:#F8D9C6;
+  --c-bt:#E99A1E; --c-sl:#4CA455; --c-dt:#E2506A; --c-zz:#9C86C0; --c-wh:#3F7DBE;
+  --p-hab:#6E95CF; --p-emp:#A97BC4; --p-acc:#EC7584; --p-time:#7CBF65; --p-res:#EBAA36;
+  --ink:#222; --mute:#666; --line:#E3DED8; --paper:#FFFDFA; --card:#fff;
+  --display:"Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--display);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+a{color:var(--orange-d)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+/* ---------- top nav ---------- */
+#nav{position:sticky;top:0;z-index:50;background:rgba(255,253,250,.94);backdrop-filter:blur(8px);border-bottom:3px solid var(--orange)}
+#nav .wrap{display:flex;align-items:center;gap:14px;height:56px}
+#nav .brand{font-weight:900;color:var(--orange);font-size:22px;letter-spacing:2px;text-decoration:none;white-space:nowrap}
+#nav .brand small{font-family:"Archivo Black",sans-serif;font-size:13px;margin-left:6px;color:var(--navy);letter-spacing:1px}
+#tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+#tabs::-webkit-scrollbar{display:none}
+#tabs a{flex:none;text-decoration:none;color:var(--mute);font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px;white-space:nowrap;transition:.2s}
+#tabs a:hover{background:var(--orange-l);color:var(--orange-d)}
+#tabs a.on{background:var(--orange);color:#fff}
+#progress{position:absolute;left:0;bottom:-3px;height:3px;background:var(--navy);width:0}
+
+/* ---------- sections ---------- */
+section.page{padding:56px 0 64px;border-bottom:1px solid var(--line);position:relative}
+section.page.tint{background:var(--sky);border-bottom:none}
+.pghead{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.pghead .no{font-weight:900;color:var(--orange);font-size:20px}
+.pghead .nm{font-weight:900;color:var(--orange);font-size:20px}
+.pghead .rule{flex:1;height:4px;background:var(--orange);border-radius:2px}
+.tint .pghead .no,.tint .pghead .nm{color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+.tint .pghead .rule{background:#fff}
+.orig{flex:none;border:2px solid var(--orange);background:#fff;color:var(--orange-d);font-weight:700;font-size:13px;border-radius:999px;padding:4px 12px}
+.orig:hover{background:var(--orange);color:#fff}
+h2.big{font-size:clamp(30px,5.4vw,56px);line-height:1.2;margin:0 0 10px;color:var(--orange);font-weight:900;letter-spacing:1px}
+h2.big .sub{font-size:.42em;color:var(--orange);margin-left:12px;vertical-align:middle}
+h2.big .sub b{color:var(--ink)}
+@media (max-width:600px){h2.big .sub{display:block;margin:6px 0 0;font-size:.5em}}
+h3{font-weight:900;font-size:22px;margin:0 0 8px}
+.lead{font-size:17px;color:#333;columns:2 360px;column-gap:40px;margin:16px 0 28px}
+.lead p{margin:0 0 12px;break-inside:avoid}
+.muted{color:var(--mute);font-size:14px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);background:#fff;border-radius:999px;padding:4px 14px;font-weight:700;font-size:14px;transition:.15s}
+.chip:hover{border-color:var(--orange)}
+.chip.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn{border:none;background:var(--orange);color:#fff;font-weight:700;border-radius:10px;padding:8px 18px;transition:.15s}
+.btn:hover{background:var(--orange-d)}
+.btn.ghost{background:#fff;color:var(--orange-d);border:2px solid var(--orange)}
+.btn.ghost:hover{background:var(--orange-l)}
+.label-tab{display:inline-block;background:var(--orange);color:#fff;font-weight:900;padding:4px 16px 4px 14px;clip-path:polygon(0 0,88% 0,100% 100%,0 100%);padding-right:34px;font-size:18px}
+.crop{background-repeat:no-repeat;border-radius:4px;background-color:#eee}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+
+/* ---------- cover ---------- */
+#cover{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding:0;border:none}
+#mosaic{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--cols,12),1fr);grid-auto-rows:1fr}
+#mosaic i{display:block;transition:background .6s,opacity .6s;background-size:cover}
+.cover-in{position:relative;z-index:2;min-height:min(92vh,880px);display:grid;grid-template-columns:1fr auto;gap:24px;padding:48px 0 0}
+.cover-left{display:flex;flex-direction:column;justify-content:center;gap:14px;padding-bottom:180px}
+.cover-left button{align-self:flex-start;text-align:left;border:none;background:var(--orange);color:#fff;font-weight:900;padding:6px 18px;font-size:clamp(20px,3.4vw,36px);line-height:1.35;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:transform .2s}
+.cover-left button:hover{transform:translateX(8px) rotate(-.5deg);background:var(--orange-d)}
+.cover-left button small{display:block;font-size:.6em}
+.masthead{border:3px solid #fff;padding:10px 14px;align-self:start;background:rgba(232,100,44,.55);backdrop-filter:blur(2px);text-align:center}
+.masthead .t{font-size:clamp(72px,12vw,150px);font-weight:900;line-height:1.02;writing-mode:vertical-rl;margin:0 auto;letter-spacing:4px}
+.masthead .s{border-top:3px solid #fff;margin-top:8px;padding-top:6px;font-weight:900;font-size:clamp(18px,2.4vw,28px)}
+.masthead .d{border-top:3px solid #fff;margin-top:6px;padding-top:4px;font-weight:700;font-size:clamp(16px,2vw,24px);letter-spacing:2px}
+.soon{position:absolute;z-index:2;left:0;right:0;bottom:-0.12em;text-align:center;font-family:"Archivo Black",sans-serif;font-style:italic;font-size:clamp(90px,21vw,270px);line-height:1;letter-spacing:-.02em;color:#fff;pointer-events:none;text-shadow:0 8px 30px rgba(0,0,0,.25)}
+.cover-hint{position:absolute;z-index:3;right:16px;bottom:12px;font-size:12px;opacity:.8}
+@media (max-width:700px){.cover-in{grid-template-columns:1fr}.masthead{order:-1;justify-self:end}.masthead .t{writing-mode:horizontal-tb;font-size:64px}.cover-left{padding-bottom:120px}}
+
+/* ---------- p01 culture routes ---------- */
+#routeTabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+#routeTabs .chip{border-color:var(--rc);color:var(--rc)}
+#routeTabs .chip.on{background:var(--rc);color:#fff}
+#routeTabs .chip .cnt{font-size:12px;background:rgba(255,255,255,.3);border-radius:8px;padding:0 6px}
+.route-title{font-weight:900;font-size:24px;color:var(--rc)}
+.route-title span{font-weight:500;margin-left:10px}
+.track{position:relative;display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px;padding:0 4px}
+.track::before{content:"";position:absolute;left:44px;right:44px;top:50%;height:6px;background:repeating-linear-gradient(90deg,var(--rc) 0 14px,transparent 14px 22px);opacity:.45;transform:translateY(-50%)}
+.track .fill{position:absolute;left:44px;top:50%;height:6px;background:var(--rc);transform:translateY(-50%);width:0;transition:width .6s}
+.stop{position:relative;z-index:1;width:clamp(58px,9vw,96px);aspect-ratio:1;border-radius:50%;border:none;background:var(--rc);color:#fff;font-weight:900;font-size:clamp(11px,1.45vw,16px);line-height:1.25;padding:6px;display:grid;place-items:center;transition:transform .2s,box-shadow .2s;box-shadow:0 0 0 0 transparent}
+.stop:hover{transform:scale(1.08)}
+.stop.sel{box-shadow:0 0 0 5px #fff,0 0 0 9px var(--rc)}
+.stop.stamped::after{content:"✔";position:absolute;right:-4px;top:-4px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--rc);border:2px solid var(--rc);font-size:14px;display:grid;place-items:center}
+.walker{position:absolute;z-index:2;top:-30px;font-size:28px;transition:left .6s;transform:translateX(-50%)}
+.stopinfo{display:grid;grid-template-columns:1fr auto;gap:12px 20px;align-items:start;background:#fff;border:2px solid var(--rc);border-left-width:10px;border-radius:12px;padding:16px 20px;margin-top:14px;min-height:118px}
+.stopinfo h4{margin:0;font-size:22px;color:var(--rc);font-weight:900}
+.stopinfo p{margin:4px 0 0}
+.stopinfo .acts{display:flex;flex-direction:column;gap:8px}
+.stamp-bar{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.stamp-bar .meter{flex:1;min-width:160px;height:12px;border-radius:6px;background:#eee;overflow:hidden}
+.stamp-bar .meter i{display:block;height:100%;background:linear-gradient(90deg,var(--c-bt),var(--c-sl),var(--c-dt),var(--c-zz),var(--c-wh));width:0;transition:width .5s}
+@media (max-width:640px){.track{flex-wrap:wrap;gap:10px;justify-content:center}.track::before,.track .fill,.walker{display:none}.stopinfo{grid-template-columns:1fr}.stopinfo .acts{flex-direction:row}}
+
+.trivia{margin-top:42px;border:2px solid var(--orange)}
+.trivia .hd{display:flex;align-items:center;border-bottom:2px solid var(--orange)}
+.trivia .hd .label-tab{font-size:24px;padding:6px 40px 6px 18px}
+.trivia .hd h3{flex:1;text-align:center;color:var(--orange);margin:0;font-size:24px}
+.quiz{padding:20px 22px;display:grid;gap:18px}
+.q{border-bottom:1px dashed var(--line);padding-bottom:16px}
+.q:last-child{border:none}
+.q .qt{font-weight:900;color:var(--orange);font-size:19px}
+.q .opts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.q .opts button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:4px 14px;font-weight:700}
+.q .opts button.right{background:var(--c-sl);border-color:var(--c-sl);color:#fff}
+.q .opts button.wrong{background:#eee;color:#999;text-decoration:line-through}
+.q .ans{display:none;background:var(--orange-l);border-radius:10px;padding:10px 14px}
+.q.done .ans{display:block;animation:pop .35s}
+@keyframes pop{from{opacity:0;transform:translateY(-6px)}to{opacity:1}}
+
+/* ---------- p02 mountains ---------- */
+.checklist h4{color:var(--orange);font-size:20px;margin:14px 0 4px;font-weight:900}
+.checklist label{display:flex;gap:10px;align-items:flex-start;padding:6px 4px;border-radius:8px;cursor:pointer}
+.checklist label:hover{background:var(--orange-l)}
+.checklist input{appearance:none;flex:none;width:20px;height:20px;border:2px solid #333;margin-top:4px;display:grid;place-items:center;background:#fff}
+.checklist input:checked{background:var(--orange);border-color:var(--orange)}
+.checklist input:checked::after{content:"✓";color:#fff;font-size:14px;font-weight:900}
+.checklist input:checked + span{color:var(--mute);text-decoration:line-through}
+.ready{display:flex;align-items:center;gap:12px;margin-top:10px;font-weight:700}
+.ready .meter{flex:1;height:10px;background:#eee;border-radius:5px;overflow:hidden}
+.ready .meter i{display:block;height:100%;width:0;background:var(--orange);transition:width .3s}
+.trail-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:34px 0 16px}
+.trail-tools input[type=search]{border:2px solid var(--line);border-radius:999px;padding:5px 14px;font:inherit;font-size:14px;min-width:180px}
+.trails{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.trail{background:#fff;border-radius:16px;padding:16px 16px 14px;border:2px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,.06);text-align:center;transition:.2s;position:relative}
+.trail:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.1)}
+.trail.pick{border-color:var(--orange);animation:pulse 1s 2}
+@keyframes pulse{50%{transform:scale(1.04)}}
+.trail .nm{display:inline-block;background:var(--tc);color:#fff;font-weight:900;font-size:19px;line-height:1.3;border-radius:999px;padding:6px 18px}
+.trail .stars{color:var(--tc);font-size:22px;letter-spacing:2px;margin:6px 0 2px}
+.trail .mrt{font-weight:700}
+.trail .fit{font-weight:700;margin-top:4px}
+.trail .rg{display:block;margin-top:6px;font-size:12px;color:var(--mute)}
+.trail.hide{display:none}
+.trail .lk{font-size:13px}
+
+/* ---------- p03-04 running ---------- */
+.who{background:#fff;border-radius:18px;padding:20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.ring{width:150px;height:150px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .v{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-weight:900;font-size:28px;line-height:1.1}
+.ring .v small{display:block;font-size:12px;font-weight:500;color:var(--mute)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{text-align:center}
+.day b{display:block;font-size:13px}
+.day .bar{height:80px;background:#f1f1f1;border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;cursor:pointer;margin:4px 0}
+.day .bar i{display:block;width:100%;background:var(--olive);transition:height .25s}
+.day .m{font-size:12px;color:var(--mute)}
+.day button{border:none;background:var(--orange-l);color:var(--orange-d);border-radius:6px;font-size:12px;font-weight:700;width:100%;padding:2px 0}
+@media (max-width:640px){.who{grid-template-columns:1fr;justify-items:center}}
+.runlayout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;margin-top:36px;align-items:start}
+@media (max-width:900px){.runlayout{grid-template-columns:1fr}}
+.mapbox{background:var(--sky);border-radius:18px;position:relative}
+#runmap{width:100%;height:auto;display:block}
+#runmap .dist{fill:var(--land);stroke:#fff;stroke-width:3}
+#runmap .dlabel{fill:#D08F7A;font-weight:900;font-size:17px;text-anchor:middle;pointer-events:none}
+#runmap .river{fill:none;stroke:#BFE3E6;stroke-width:9;stroke-linecap:round}
+#runmap .rt{fill:none;stroke-width:18;stroke-linecap:round;opacity:.65;cursor:pointer;transition:opacity .2s,stroke-width .2s}
+#runmap .rt:hover,#runmap .rt.sel{opacity:.95;stroke-width:24}
+#runmap .pin{cursor:pointer}
+#runmap .pin text{font-size:13px;font-weight:700;fill:#333}
+#runmap .dim{opacity:.12;pointer-events:none}
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px}
+.legend .chip.run.on{background:var(--olive);border-color:var(--olive)}
+.legend .chip.trl.on{background:var(--salmon);border-color:var(--salmon)}
+.rcard{border-radius:14px;overflow:hidden;background:var(--rc);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.rcard .dist{color:var(--rc);background:var(--sky);font-weight:900;font-size:28px;padding:0 0 6px}
+.rcard .hd{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;font-weight:900;font-size:clamp(22px,3vw,30px);line-height:1.3}
+.rcard .hd small{font-size:14px;font-weight:700}
+.rcard .crop{border-radius:0;aspect-ratio:415/265;width:100%}
+.rcard .bd{padding:14px 18px;font-weight:700}
+.rcard .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.rcard .meta span{background:rgba(255,255,255,.25);padding:2px 10px;border-radius:999px;font-size:14px}
+.pace{background:#fff;border-radius:14px;padding:14px 18px;margin-top:14px}
+.pace input[type=range]{width:100%;accent-color:var(--orange)}
+.pace table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.pace td{padding:4px 2px;border-bottom:1px solid var(--line)}
+.pace td:last-child{text-align:right;font-weight:700}
+.pace tr.sel td{color:var(--orange-d)}
+.vtitle{writing-mode:vertical-rl;font-weight:900;color:var(--orange);font-size:clamp(34px,5vw,60px);line-height:1.05;position:absolute;right:20px;top:120px;letter-spacing:2px}
+.vtitle small{display:block;font-size:.42em;margin-left:8px}
+@media (max-width:1180px){.vtitle{position:static;writing-mode:horizontal-tb;margin-bottom:8px}}
+
+/* ---------- p05 station ---------- */
+.stories{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+@media (max-width:820px){.stories{grid-template-columns:1fr}}
+.story{background:#fff;border:2px solid #222;border-radius:4px;padding:14px}
+.story h4{margin:0 0 10px;font-weight:900;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+.story .stage{position:relative;aspect-ratio:1;overflow:hidden;border:2px solid #222}
+.story .stage .crop{position:absolute;inset:0;border-radius:0;opacity:0;transition:opacity .45s}
+.story .stage .crop.on{opacity:1}
+.story .cap{margin-top:10px;font-weight:900;font-size:18px;min-height:32px}
+.story .cap em{font-style:normal;color:var(--orange)}
+.steps{display:flex;gap:6px;margin-top:8px}
+.steps button{flex:1;border:2px solid #222;background:#fff;border-radius:6px;font-size:13px;font-weight:700;padding:3px 0}
+.steps button.on{background:#222;color:#fff}
+.services{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 6px}
+.svc{flex:1;min-width:150px;border:2px solid var(--orange);border-radius:14px;padding:12px;text-align:center;background:#fff;transition:.2s}
+.svc .ic{font-size:34px}
+.svc b{display:block;font-size:18px}
+.svc p{margin:4px 0 0;font-size:14px;color:var(--mute);max-height:0;overflow:hidden;transition:max-height .3s}
+.svc:hover,.svc:focus-within,.svc.open{background:var(--orange-l)}
+.svc:hover p,.svc.open p{max-height:120px}
+.bar-o{height:46px;background:var(--orange);margin:56px 0 28px}
+.quote{font-size:clamp(28px,4.6vw,52px);font-weight:900;color:var(--orange);line-height:1.3;margin:0 0 20px}
+.recovery{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:center;background:#fff;border-radius:18px;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.06);margin-top:10px}
+@media (max-width:820px){.recovery{grid-template-columns:1fr}}
+.facet{margin-bottom:14px}
+.facet .top{display:flex;justify-content:space-between;font-weight:700}
+.facet .top span{color:var(--mute);font-weight:500;font-size:14px}
+.facet input{width:100%;accent-color:var(--orange)}
+.facet.key .top b{color:var(--orange)}
+#radar text{font-size:13px;font-weight:700;fill:#444}
+.tip{background:var(--orange-l);border-radius:12px;padding:10px 14px;font-weight:500;margin-top:6px}
+
+/* ---------- p06 vision ---------- */
+.hero6{position:relative;border-radius:4px;overflow:hidden}
+.hero6 .crop{aspect-ratio:1145/520;width:100%;filter:grayscale(.15)}
+.hero6 .ttl{position:absolute;left:0;right:0;bottom:0;padding:24px 22px 16px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff}
+.hero6 .ttl b{display:block;font-size:clamp(32px,5.6vw,64px);font-weight:900;line-height:1.15}
+.hero6 .ttl span{font-weight:700;font-size:clamp(15px,2vw,22px)}
+.manifesto{font-weight:900;font-size:19px;line-height:1.9;margin:20px 0}
+.dlf{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:center;background:#fff;border-radius:18px;padding:20px;box-shadow:0 4px 18px rgba(0,0,0,.06);margin:26px 0}
+@media (max-width:760px){.dlf{grid-template-columns:1fr}}
+.dlf svg circle{transition:r .4s,fill .4s}
+.dlf svg line{transition:stroke-dashoffset .8s,opacity .4s}
+.dlf svg path{transition:opacity .6s}
+.dlf .modes{display:flex;gap:8px;margin:10px 0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:860px){.three{grid-template-columns:1fr}}
+.pol{background:#fff;border-top:5px solid var(--orange);border-radius:4px 4px 14px 14px;padding:18px;box-shadow:0 4px 18px rgba(0,0,0,.05);display:flex;flex-direction:column}
+.pol h4{color:var(--orange);font-weight:900;font-size:20px;margin:0 0 8px}
+.pol p{margin:0 0 10px;font-size:15px}
+.pol .tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.pol .tags span{font-size:13px;background:var(--orange-l);color:var(--orange-d);border-radius:999px;padding:1px 10px;font-weight:700}
+.pol .more{margin-top:auto;align-self:flex-start}
+.sign{font-family:"Brush Script MT",cursive;font-size:56px;text-align:right;color:#111;margin:16px 0 0;font-weight:400;letter-spacing:6px;font-style:italic}
+
+/* ---------- p07 policy cloud ---------- */
+.pillars{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pillars .chip{border-color:var(--pc);color:var(--pc)}
+.pillars .chip.on{background:var(--pc);color:#fff}
+.cloud{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:center;background:#fff;border-radius:18px;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.05)}
+.cloud .w{border:none;background:none;color:var(--pc);font-weight:500;padding:0 2px;line-height:1.2;transition:opacity .25s,transform .2s;border-radius:6px}
+.cloud .w:hover{transform:scale(1.06)}
+.cloud .w.k{font-family:"Archivo Black",sans-serif;font-weight:400;letter-spacing:.02em}
+.cloud .w.z{font-weight:900}
+.cloud .w.off{opacity:.13}
+.cloud .w.rel{background:var(--orange-l);box-shadow:0 0 0 2px var(--orange)}
+.cloud .heart{font-size:64px;color:#F8D2D8;line-height:1}
+.pinfo{margin-top:14px;min-height:64px;border-left:8px solid var(--pc,var(--orange));background:#fff;border-radius:10px;padding:12px 16px}
+.pinfo b{color:var(--pc,var(--orange))}
+.slogan{font-size:clamp(44px,9vw,110px);font-weight:900;color:#F0834E;text-align:center;margin:32px 0 6px;line-height:1.1}
+.slogan span{display:inline-block;transition:transform .3s}
+.slogan:hover span{transform:translateY(-6px)}
+.slogan span:nth-child(2n){transition-delay:.04s}
+.youare{text-align:center;font-weight:700;margin-bottom:26px}
+.line-qr{display:block;width:100%;aspect-ratio:1213/300;border-radius:4px}
+.colophon{text-align:center;font-size:14px;color:var(--mute);margin-top:16px}
+footer{padding:28px 0 60px;text-align:center;color:var(--mute);font-size:13px}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:100;background:rgba(20,20,20,.92);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:12px}
+#lb.open{display:flex}
+#lb img{max-height:calc(100vh - 80px);max-width:100%;object-fit:contain;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#lb .bar{display:flex;gap:10px;align-items:center;color:#fff}
+#lb .bar button{background:#fff;border:none;border-radius:999px;padding:4px 14px;font-weight:700}
+#lb .bar span{min-width:70px;text-align:center}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:8px 18px;border-radius:999px;opacity:0;transition:.3s;z-index:120;font-weight:700;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header id="nav">
+  <div class="wrap">
+    <a class="brand" href="#cover">順報<small>SOON</small></a>
+    <nav id="tabs">
+      <a href="#cover">封面</a>
+      <a href="#p1">01 走進老故事</a>
+      <a href="#p2">02 走進山裡</a>
+      <a href="#p3">03–04 跑者秘境地圖</a>
+      <a href="#p5">05 運動驛站</a>
+      <a href="#p6">06 想做的事</a>
+      <a href="#p7">政見總覽</a>
+    </nav>
+  </div>
+  <div id="progress"></div>
+</header>
+
+<!-- ================= COVER ================= -->
+<section id="cover" class="page" data-pg="1">
+  <div id="mosaic" aria-hidden="true"></div>
+  <div class="wrap cover-in">
+    <div class="cover-left">
+      <button data-go="#p3"><small>跑步、散步、爬山</small>台北人的下班提案</button>
+      <button data-go="#p2">下班後，可以去哪裡走走？</button>
+      <button data-go="#p3">台北跑者秘境地圖</button>
+      <button data-go="#p1" style="font-size:clamp(16px,2.2vw,22px)">走進老故事 · 五條主題文化徑 →</button>
+    </div>
+    <div class="masthead">
+      <div class="t">順報</div>
+      <div class="s">台北順起來</div>
+      <div class="d">2026.10.06</div>
+    </div>
+  </div>
+  <div class="soon">SOON</div>
+  <button class="cover-hint orig" data-orig="1" style="position:absolute">📄 原版封面</button>
+</section>
+
+<!-- ================= P01 CULTURE ================= -->
+<section id="p1" class="page" data-pg="2">
+  <div class="wrap">
+    <div class="pghead"><span class="no">01</span><span class="nm">順報</span><span class="rule"></span><button class="orig" data-orig="2">📄 原版</button></div>
+    <h2 class="big">走進老故事<span class="sub">主題文化徑 <b>沿著捷運慢慢走、慢慢逛</b></span></h2>
+    <div class="lead">
+      <p>台北的文化故事，就在你每天回家的路上！那些走過無數次的老街與街區，或許都藏著未曾聽聞的故事，只是我們經常匆匆路過。若能把散落在台北的文化路徑重新串起，認識這座城市其實可以很簡單。</p>
+      <p>下次下班回家的路上，不妨從捷運站多走幾步，走進歷史街區，也許會發現每天經過的地方，竟有這麼多迷人的故事。</p>
+    </div>
+
+    <div id="routeTabs" role="tablist"></div>
+    <div id="routeView"></div>
+    <div class="stamp-bar">
+      <b>🏅 文化徑集章</b>
+      <div class="meter"><i id="stampMeter"></i></div>
+      <span id="stampTxt" class="muted"></span>
+      <button class="btn ghost" id="stampReset" style="padding:3px 12px;font-size:13px">重設</button>
+    </div>
+    <p class="muted">★ 台北還有更多文化路徑，等著大家去發掘！點選站點看介紹，按「我走過了」收集印章。</p>
+
+    <div class="trivia">
+      <div class="hd"><span class="label-tab">冷知識</span><h3>關於台北城牆的下落</h3></div>
+      <div class="quiz" id="quiz"></div>
+      <p class="muted" style="padding:0 22px 14px;margin:0">※資料來源：文化部文化資產局、國家文化記憶庫</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= P02 MOUNTAINS ================= -->
+<section id="p2" class="page" data-pg="3">
+  <div class="wrap">
+    <div class="pghead"><span class="rule"></span><span class="nm">順報</span><span class="no">02</span><button class="orig" data-orig="3">📄 原版</button></div>
+    <h2 class="big">轉個彎，讓我們走進山裡</h2>
+    <div class="grid2" style="margin-top:20px">
+      <div>
+        <span class="label-tab">台北山林小知識</span>
+        <div class="crop" data-src="3" data-box="135,323,555,236" style="width:100%"></div>
+        <p>台北四周環山，北有大屯火山群，東側與南側圍繞著內湖、南港與木柵的丘陵。其實，台北一直是一座離山很近的城市，有許多親山步道，搭捷運或公車就能抵達。想爬山，不用特別跑一趟遠方，下班多坐幾站、週末從家裡出發，就能走進山裡。</p>
+        <p><b>山，一直都在台北人的生活裡。</b></p>
+      </div>
+      <div class="checklist">
+        <div style="display:flex;align-items:center;border-bottom:3px solid var(--orange)"><span class="label-tab" style="font-size:18px">貼心提醒</span><b style="color:var(--orange);font-size:22px;margin-left:12px">走進山林，請注意!!</b></div>
+        <div id="checklist"></div>
+        <div class="ready"><span>出發準備度</span><div class="meter"><i id="readyMeter"></i></div><span id="readyTxt">0/6</span></div>
+      </div>
+    </div>
+
+    <div class="trail-tools">
+      <b>難易度：</b>
+      <button class="chip on" data-lv="0">全部</button>
+      <button class="chip" data-lv="1">★</button>
+      <button class="chip" data-lv="2">★★</button>
+      <button class="chip" data-lv="3">★★★</button>
+      <span style="width:8px"></span>
+      <button class="chip on" data-rg="all">全區</button>
+      <button class="chip" data-rg="N">陽明山・北區</button>
+      <button class="chip" data-rg="S">市區・南區郊山</button>
+      <input type="search" id="trailQ" placeholder="搜尋捷運站或用途…（如：夜景）">
+      <button class="btn" id="pickTrail">🎲 幫我挑一條</button>
+    </div>
+    <div class="trails" id="trails"></div>
+    <p class="muted" style="text-align:right">★：難易度　｜　點步道名稱可開啟 Google 地圖</p>
+  </div>
+</section>
+
+<!-- ================= P03-04 RUNNING ================= -->
+<section id="p3" class="page tint" data-pg="4">
+  <div class="wrap">
+    <div class="pghead"><span class="no">03</span><span class="nm">順報</span><span class="rule"></span><button class="orig" data-orig="4">📄 原版 03</button><button class="orig" data-orig="5">📄 原版 04</button></div>
+    <div class="vtitle">台北跑者秘境地圖<small>6條路線，都在捷運可以達到的地方</small></div>
+    <h2 class="big">不用很多，<br>先動起來就好!!</h2>
+    <div class="grid2" style="max-width:900px">
+      <div>
+        <p>WHO 世界衛生組織建議成人每週進行 <b>150 至 300 分鐘</b>中等強度有氧活動。這個數字看起來不容易，但不用有壓力，因為有動總比沒動好（Doing some physical activity is better than doing none）。</p>
+        <p>所以，不用一次達到標準，慢慢開始就好。一天多留 30 分鐘給自己，讓身體動起來。</p>
+        <p>我們把 6 條路線畫在捷運路網上，找一條離自己最近的路，就開始奔跑吧！</p>
+      </div>
+      <div class="crop" data-src="4" data-box="133,853,470,1012" style="width:100%;max-width:340px;justify-self:center"></div>
+    </div>
+
+    <div class="who" style="margin-top:26px">
+      <div class="ring">
+        <svg viewBox="0 0 150 150" width="150" height="150">
+          <circle cx="75" cy="75" r="62" fill="none" stroke="#eee" stroke-width="14"/>
+          <circle id="ring300" cx="75" cy="75" r="62" fill="none" stroke="#E5D9A6" stroke-width="14" stroke-dasharray="389.6" stroke-dashoffset="389.6" stroke-linecap="round"/>
+          <circle id="ring150" cx="75" cy="75" r="62" fill="none" stroke="var(--olive)" stroke-width="14" stroke-dasharray="389.6" stroke-dashoffset="389.6" stroke-linecap="round"/>
+        </svg>
+        <div class="v"><div><span id="weekMin">0</span><small>分鐘／本週</small></div></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:2px">我的一週活動紀錄</h3>
+        <p class="muted" style="margin:0 0 10px" id="whoMsg">點「+30」記下今天的活動，目標每週 150–300 分鐘。</p>
+        <div class="days" id="days"></div>
+      </div>
+    </div>
+
+    <div class="runlayout">
+      <div class="mapbox">
+        <div class="legend">
+          <button class="chip run on" data-type="run">■ 跑者路線</button>
+          <button class="chip trl on" data-type="trail">■ 越野跑初階路線</button>
+        </div>
+        <svg id="runmap" viewBox="0 0 600 640" role="img" aria-label="台北六條跑步路線示意地圖"></svg>
+        <p class="muted" style="padding:0 14px 12px;margin:0">示意地圖，非實際比例。★上網搜尋「地點＋跑者路線」，有更多跑友分享路線指南！</p>
+      </div>
+      <div>
+        <div id="rcard"></div>
+        <div class="pace">
+          <b>⏱ 配速換算</b> <span class="muted">我的配速：<b id="paceTxt">6'30"</b> / 公里</span>
+          <input type="range" id="pace" min="240" max="720" step="15" value="390" aria-label="配速（秒/公里）">
+          <table id="paceTable"></table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= P05 STATION ================= -->
+<section id="p5" class="page" data-pg="6">
+  <div class="wrap">
+    <div class="pghead"><span class="no">05</span><span class="nm">順報</span><span class="rule"></span><button class="orig" data-orig="6">📄 原版</button></div>
+    <h2 class="big">下班隨時動起來！<br>東京、首爾都有的「運動驛站」</h2>
+    <h3 style="font-size:clamp(18px,2.6vw,26px)">置物、更衣、梳洗一次到位：解決運動前後那些瑣碎的事</h3>
+    <div class="lead">
+      <p>下班想去跑步或騎單車，最麻煩的往往不是運動本身，而是衣服在哪換、包包放哪、滿身大汗該怎麼清爽赴約？</p>
+      <p>「運動驛站」的概念是串聯運動熱點與生活路徑，盤點登山口、河濱公園，以及捷運附屬空間（如北投會館、小巨蛋及地下街等），打造明亮、安全且由專人維護的「智慧寄物、更衣與梳洗」空間。</p>
+      <p>這不僅服務跑者與單車族，也為外勤工作者、下班赴約的民眾提供從容轉換的角落。把瑣碎的負擔交給城市規劃，下班生活就有更多可能。</p>
+    </div>
+    <div class="services" id="services"></div>
+    <div class="stories" id="stories"></div>
+
+    <div class="bar-o"></div>
+    <p class="quote">有時候，行動缺的不是意志力，<br>而是自己對時間的掌控感。</p>
+    <div class="lead" style="margin-bottom:12px">
+      <p>心理學家 Sonnentag 與 Fritz 在 2007 年提出「工作恢復」的四個面向：心理抽離、放鬆、時間掌控感與精通。其中，「時間掌控感」就是下班後，能不能自己安排時間。研究也發現，狀態恢復得越好，越不容易感到耗竭，也能睡得更好。</p>
+      <p>很多人並非不想運動，而是缺少便利的服務，苦於無處更衣與寄物，就可能讓人直接打消念頭。運動驛站的出發點，就是替大家省去這些麻煩，讓「下班去運動」不需特別安排，自然成為生活的一部分。</p>
+    </div>
+    <div class="recovery">
+      <div>
+        <h3>🧭 下班恢復力自我檢測</h3>
+        <p class="muted" style="margin-top:0">拖動滑桿，評估你最近一週的下班狀態（1＝很少，5＝經常）。</p>
+        <div id="facets"></div>
+        <div class="tip" id="recTip"></div>
+      </div>
+      <svg id="radar" viewBox="-150 -140 300 280" width="100%"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= P06 VISION ================= -->
+<section id="p6" class="page" data-pg="7">
+  <div class="wrap">
+    <div class="pghead"><span class="rule"></span><span class="nm">順報</span><span class="no">06</span><button class="orig" data-orig="7">📄 原版</button></div>
+    <div class="hero6">
+      <div class="crop" data-src="7" data-box="135,135,1145,520"></div>
+      <div class="ttl"><b>沈伯洋想做的事</b><span>這三件事，都跟你這一期讀到的內容有關</span></div>
+    </div>
+    <p class="manifesto">台北的老街與步道藏著豐富故事，卻因彼此分散且缺乏完整路線與服務，難以順暢走訪。沈伯洋提出「首都文化徑 × 山林徑」，將散落的「點」串成「線」與「面」，並以「運動驛站」補足服務。連起地方與服務，台北才能從「有很多景點」，變成「能去很多地方」。</p>
+
+    <div class="dlf">
+      <div>
+        <h3>從「點」到「線」到「面」</h3>
+        <p style="margin:0">切換看看：散落的景點（點）→ 串成路線（線）→ 加上驛站服務形成生活圈（面）。</p>
+        <div class="modes">
+          <button class="chip on" data-mode="0">● 點</button>
+          <button class="chip" data-mode="1">― 線</button>
+          <button class="chip" data-mode="2">▣ 面</button>
+          <button class="btn ghost" id="dlfPlay" style="padding:2px 12px">▶ 播放</button>
+        </div>
+        <p class="muted" id="dlfTxt" style="margin:0"></p>
+      </div>
+      <svg id="dlf" viewBox="0 0 260 200" width="100%"></svg>
+    </div>
+
+    <div class="three">
+      <div class="pol">
+        <h4>讓文化不只是一個景點</h4>
+        <p>艋舺與大稻埕記錄著城市發展，眷村、客家與原民文化是族群生活痕跡，二二八歷史現場也散落各處。現今文資常受限於「單一景點」。主題文化徑旨在重新串連這些故事，讓人沿著路線走過台北的不同時期。</p>
+        <div class="tags"><span>首都文化徑</span><span>艋舺</span><span>大稻埕</span><span>二二八歷史現場</span></div>
+        <button class="btn ghost more" data-go="#p1">看本期文化徑 →</button>
+      </div>
+      <div class="pol">
+        <h4>山林，不只是登山客的事</h4>
+        <p>在台北，搭捷運 20 分鐘即可入山，但缺乏裝備或不熟路線者仍有門檻。本政策規劃於<b>象山、劍潭、貓空</b>設立三座登山觀光中心，提供裝備租借、置物、洗鞋區、四語導覽與即時路況，並增開交通接駁；步道採「修復代替新建」，重新檢視步道分級並補足安全設施。核心精神為不過度開發山林，而是讓既有大自然更容易親近。</p>
+        <div class="tags"><span>裝備租借</span><span>置物</span><span>洗鞋區</span><span>四語導覽</span><span>即時路況</span><span>交通接駁</span></div>
+        <button class="btn ghost more" data-go="#p2">看本期步道 →</button>
+      </div>
+      <div class="pol">
+        <h4>讓運動，自然成為生活的一部分</h4>
+        <p>許多人常被運動前後的瑣事絆住腳步：包包無處可放、沒有空間更衣沖洗。「運動驛站」在登山口、河濱公園、捷運附屬設施提供這些服務，讓運動無需刻意安排。少掉麻煩，就能多出屬於自己的時間。這對旅客是一張認識台北的地圖，對居民則是下班散步、週末爬山的新路線。台北不缺故事與景點，缺的是將這座城市重新連起來的人。</p>
+        <div class="tags"><span>運動驛站</span><span>登山口</span><span>河濱公園</span><span>捷運附屬設施</span></div>
+        <button class="btn ghost more" data-go="#p5">看運動驛站 →</button>
+      </div>
+    </div>
+    <div class="crop" data-src="7" data-box="880,1690,420,236" style="width:min(320px,70%);aspect-ratio:420/236;margin:18px 0 0 auto;background-color:transparent" aria-label="沈伯洋簽名"></div>
+  </div>
+</section>
+
+<!-- ================= P07 POLICY ================= -->
+<section id="p7" class="page" data-pg="8">
+  <div class="wrap">
+    <div class="pghead"><span class="no">07</span><span class="nm">政見總覽</span><span class="rule"></span><button class="orig" data-orig="8">📄 原版</button></div>
+    <div class="pillars" id="pillars"></div>
+    <div class="cloud" id="cloud"></div>
+    <div class="pinfo" id="pinfo"><b>點選上方分類或任一政見</b>，看它屬於哪個面向。按「✦ 本期相關」標示出這期順報談到的政見。</div>
+    <p class="muted">分類依刊物版面配色整理。</p>
+    <div class="slogan" id="slogan"></div>
+    <p class="youare"><b>你是主角</b>，沈伯洋是負責回答的配角<br>接下來，他將走入街區，直接面對你生活中的每一道難題</p>
+    <div class="crop line-qr" data-src="8" data-box="100,1597,1213,300" role="img" aria-label="市長你給我聽好了！市民心聲搜集平台 LINE QR Code"></div>
+    <p class="colophon">本刊物由 2026 台北市長候選人沈伯洋競選團隊製作、發行</p>
+  </div>
+</section>
+
+<footer>順報 SOON · 2026.10.06 · 互動版依原刊物 8 頁內容重製 · 按 <b>←/→</b> 可在原版頁面間切換</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="原版頁面">
+  <img id="lbImg" alt="">
+  <div class="bar"><button id="lbPrev">← 上一頁</button><span id="lbNo"></span><button id="lbNext">下一頁 →</button><button id="lbClose">✕ 關閉</button></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const IMG = n => `SoonDaily-2026-10-06_p0${n}.webp`;
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('soon:' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('soon:' + k, JSON.stringify(v)); } catch {} }
+};
+const toast = (msg) => { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 1800); };
+const gmap = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('台北 ' + q)}`;
+
+/* ---- crops from the original page images (display coords on 1414×2000) ---- */
+function applyCrop(el) {
+  const [x, y, w, h] = el.dataset.box.split(',').map(Number);
+  const W = 1414, H = 2000;
+  el.style.backgroundImage = `url("${IMG(el.dataset.src)}")`;
+  el.style.backgroundSize = `${W / w * 100}% ${H / h * 100}%`;
+  el.style.backgroundPosition = `${x / (W - w) * 100}% ${y / (H - h) * 100}%`;
+  if (!el.style.aspectRatio) el.style.aspectRatio = `${w}/${h}`;
+}
+const crop = (src, box, cls = '') => { const d = document.createElement('div'); d.className = 'crop ' + cls; d.dataset.src = src; d.dataset.box = box; applyCrop(d); return d; };
+$$('.crop[data-box]').forEach(applyCrop);
+
+/* ---- nav: active tab + progress ---- */
+const secs = $$('section.page'), tabs = $$('#tabs a');
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    tabs.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+    const on = $('#tabs a.on'); on && on.scrollIntoView({ block: 'nearest', inline: 'center' });
+  }
+}), { rootMargin: '-45% 0px -50% 0px' });
+secs.forEach(s => io.observe(s));
+addEventListener('scroll', () => {
+  const h = document.documentElement; $('#progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+document.addEventListener('click', e => {
+  const g = e.target.closest('[data-go]'); if (g) $(g.dataset.go).scrollIntoView({ behavior: 'smooth' });
+  const o = e.target.closest('[data-orig]'); if (o) openLB(+o.dataset.orig);
+});
+
+/* ---- cover mosaic ---- */
+const mosaic = $('#mosaic');
+const tileCols = ['#C9622F', '#B4572A', '#D9733F', '#1F2B4A', '#22313F', '#2E6B5E', '#3C7A64', '#7A6A3A', '#9A5A35', '#0F1A2A'];
+const roads = c => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='none' stroke='${c}' stroke-width='1.2' opacity='.7'><path d='M${rnd(60)} 0 Q${rnd(60)} ${rnd(60)} ${rnd(60)} 60'/><path d='M0 ${rnd(60)} L60 ${rnd(60)}'/><path d='M0 ${rnd(60)} Q30 ${rnd(60)} 60 ${rnd(60)}'/><path d='M${rnd(60)} 0 L${rnd(60)} 60' stroke-width='.6'/></g></svg>`)}")`;
+function rnd(n) { return Math.round(Math.random() * n); }
+function buildMosaic() {
+  const cols = innerWidth < 600 ? 7 : 12, rows = Math.ceil(mosaic.offsetHeight / (mosaic.offsetWidth / cols)) || 10;
+  mosaic.style.setProperty('--cols', cols); mosaic.innerHTML = '';
+  for (let i = 0; i < cols * rows; i++) {
+    const t = document.createElement('i'), c = tileCols[rnd(tileCols.length - 1)];
+    t.style.backgroundColor = c; t.style.backgroundImage = roads('#111');
+    mosaic.appendChild(t);
+  }
+}
+buildMosaic(); addEventListener('resize', () => { clearTimeout(buildMosaic._h); buildMosaic._h = setTimeout(buildMosaic, 300); });
+setInterval(() => {
+  const ts = mosaic.children; if (!ts.length || document.hidden) return;
+  for (let k = 0; k < 4; k++) { const t = ts[rnd(ts.length - 1)]; t.style.backgroundColor = tileCols[rnd(tileCols.length - 1)]; t.style.backgroundImage = roads('#111'); }
+}, 700);
+mosaic.parentElement.addEventListener('pointermove', e => {
+  const el = document.elementFromPoint(e.clientX, e.clientY);
+  if (el && el.parentElement === mosaic) el.style.backgroundColor = '#E8642C';
+});
+
+/* ================= P01 culture routes ================= */
+const ROUTES = [
+  { id: 'bt', name: '北投文化路徑', theme: '溫泉產業與自然地景', c: 'var(--c-bt)', stops: [
+    ['捷運北投站', '路線起點。由此沿光明路往新北投方向步行，一路緩坡上行。'],
+    ['光明路與溫泉路', '北投溫泉街區的主要動線，沿途可見溫泉旅館與老招牌，感受溫泉鄉的街道尺度。'],
+    ['瀧乃湯浴室', '日治時期即營業的老牌公共浴場，見證北投溫泉產業的發展。'],
+    ['地熱谷', '北投溫泉的源頭之一，終年熱氣蒸騰，是認識大屯火山地熱地景的最佳地點。'],
+    ['北投溫泉博物館', '由日治時期的北投公共浴場改建，紅磚與木造的和洋混合建築，介紹北投溫泉歷史。'],
+    ['新北投車站', '早年新北投支線的木造車站，曾遷移他處，後回到北投原址附近重新開放。'],
+    ['捷運新北投站', '路線終點，可搭新北投支線回北投站轉乘。']] },
+  { id: 'sl', name: '士林文化路徑', theme: '漳泉開墾與街肆演變', c: 'var(--c-sl)', stops: [
+    ['捷運士林站', '路線起點。士林舊稱「八芝蘭」，是早期漢人開墾的重要聚落。'],
+    ['士林舊街', '舊街一帶保留早期街肆紋理，可看出士林由聚落發展為市街的歷程。'],
+    ['士林神農宮', '士林地區歷史悠久的廟宇，主祀神農大帝，與早年農業開墾生活息息相關。'],
+    ['士林官邸公園', '昔日官邸如今開放為公園，園藝花圃與玫瑰園是市民散步的好去處。'],
+    ['士林慈誠宮', '主祀媽祖，位於士林夜市旁，是在地信仰與市集生活的中心。'],
+    ['臺北表演藝術中心', '造型獨特的當代表演藝術場館，為老街區加入新的城市文化地標。'],
+    ['捷運劍潭站', '路線終點，走完舊街與新地標，從劍潭站返家。']] },
+  { id: 'dt', name: '大同文化路徑', theme: '歷史建築與地方人文巡禮', c: 'var(--c-dt)', stops: [
+    ['捷運北門站', '路線起點，鄰近保留原貌的台北府城北門。'],
+    ['甘谷街', '大稻埕的老街之一，鄰近碼頭與貨運動線，可感受昔日商港的街巷氛圍。'],
+    ['永樂市場', '以布料批發聞名的市場，是大稻埕紡織與商貿歷史的縮影。'],
+    ['臺北霞海城隍廟', '大稻埕信仰中心之一，以月下老人聞名，香火鼎盛。'],
+    ['郭怡美書店', '在迪化街老建築中經營的書店，讓歷史街屋有了新的閱讀生命。'],
+    ['迪化街十連棟', '迪化街北段一整排連續街屋，是觀察大稻埕街屋立面與商住形式的好地方。'],
+    ['捷運大橋頭站', '路線終點，鄰近台北橋與淡水河岸。']] },
+  { id: 'zz', name: '中正文化路徑', theme: '台北現代化的起點', c: 'var(--c-zz)', stops: [
+    ['捷運西門站', '路線起點，由西門走向城內，進入台北現代化的核心區。'],
+    ['中山堂', '日治時期的公會堂，見證許多重要歷史時刻，今為展演與文化空間。'],
+    ['總統府', '原為臺灣總督府，是台北最具代表性的近代官廳建築之一。'],
+    ['菊元百貨', '日治時期台北第一家百貨公司，被暱稱為「七重天」，象徵當時的摩登生活。'],
+    ['國立臺灣博物館', '位於二二八和平公園內，是台灣歷史最悠久的博物館之一，新古典主義建築。'],
+    ['台大醫院', '台大醫院舊館為紅磚古典建築，見證台灣近代醫療的發展。'],
+    ['捷運台大醫院站', '路線終點，就在二二八和平公園旁。']] },
+  { id: 'wh', name: '萬華文化路徑', theme: '台北的起源', c: 'var(--c-wh)', stops: [
+    ['捷運龍山寺站', '路線起點。萬華舊稱「艋舺」，是台北最早發展的市街。'],
+    ['龍山寺', '艋舺的信仰中心，建於清代，歷經多次重建，至今香火不斷。'],
+    ['艋舺青山宮', '主祀靈安尊王，每年的「青山王祭」是萬華地區重要的民俗盛事。'],
+    ['台北第一街', '今貴陽街一帶，被稱為台北最早形成的街道之一。'],
+    ['艋舺清水巖祖師廟', '主祀清水祖師，與龍山寺、青山宮並列艋舺重要廟宇。'],
+    ['西本願寺', '日治時期的佛教寺院遺址，今為廣場公園，保留鐘樓、樹心會館等建物。'],
+    ['西門紅樓', '日治時期的公設市場，八角樓造型為其特色，今為文創展演空間。'],
+    ['捷運西門站', '路線終點，從老艋舺一路走到熱鬧的西門町。']] }
+];
+let curRoute = 0, curStop = 0;
+const stamps = new Set(store.get('stamps', []));
+const totalStops = ROUTES.reduce((s, r) => s + r.stops.length, 0);
+function renderTabs() {
+  $('#routeTabs').innerHTML = ROUTES.map((r, i) => {
+    const n = r.stops.filter((_, j) => stamps.has(r.id + j)).length;
+    return `<button class="chip ${i === curRoute ? 'on' : ''}" style="--rc:${r.c}" data-r="${i}" role="tab" aria-selected="${i === curRoute}">${r.name.replace('文化路徑', '')}<span class="cnt">${n}/${r.stops.length}</span></button>`;
+  }).join('');
+}
+function renderRoute() {
+  const r = ROUTES[curRoute], v = $('#routeView');
+  v.style.setProperty('--rc', r.c);
+  v.innerHTML = `<div class="route-title" style="--rc:${r.c}">${r.name}<span>${r.theme}</span></div>
+    <div class="track" style="--rc:${r.c}"><div class="fill"></div><div class="walker">🚶</div>
+    ${r.stops.map((s, j) => `<button class="stop ${stamps.has(r.id + j) ? 'stamped' : ''}" data-s="${j}" aria-label="${s[0]}">${s[0]}</button>`).join('')}</div>
+    <div class="stopinfo" style="--rc:${r.c}"></div>
+    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost" id="walkPlay">▶ 沿線走一趟</button>
+    <a class="btn ghost" style="text-decoration:none" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/${r.stops.map(s => encodeURIComponent('台北 ' + s[0])).join('/')}/data=!4m2!4m1!3e2">🗺 整條路線導航</a></div>`;
+  selectStop(curStop);
+  renderStampBar();
+}
+function selectStop(j) {
+  const r = ROUTES[curRoute]; curStop = j;
+  const btns = $$('#routeView .stop'); btns.forEach((b, k) => b.classList.toggle('sel', k === j));
+  const b = btns[j], track = $('#routeView .track');
+  if (b && track) {
+    const cx = b.offsetLeft + b.offsetWidth / 2;
+    $('.walker', track).style.left = cx + 'px';
+    $('.fill', track).style.width = Math.max(0, cx - 44) + 'px';
+  }
+  const s = r.stops[j], got = stamps.has(r.id + j);
+  $('#routeView .stopinfo').innerHTML = `<div><span class="muted">第 ${j + 1} / ${r.stops.length} 站</span><h4>${s[0]}</h4><p>${s[1]}</p></div>
+    <div class="acts"><button class="btn" data-stamp="${j}">${got ? '✔ 已集章' : '📍 我走過了'}</button>
+    <a class="btn ghost" style="text-decoration:none;text-align:center" target="_blank" rel="noopener" href="${gmap(s[0])}">地圖</a></div>`;
+}
+function renderStampBar() {
+  $('#stampMeter').style.width = (stamps.size / totalStops * 100) + '%';
+  $('#stampTxt').textContent = `已集 ${stamps.size} / ${totalStops} 站` + (stamps.size === totalStops ? ' 🎉 文化徑達人！' : '');
+}
+$('#routeTabs').addEventListener('click', e => { const b = e.target.closest('[data-r]'); if (!b) return; curRoute = +b.dataset.r; curStop = 0; stopWalk(); renderTabs(); renderRoute(); });
+$('#routeView').addEventListener('click', e => {
+  const s = e.target.closest('.stop'); if (s) { stopWalk(); selectStop(+s.dataset.s); }
+  const st = e.target.closest('[data-stamp]');
+  if (st) {
+    const r = ROUTES[curRoute], key = r.id + st.dataset.stamp;
+    stamps.has(key) ? stamps.delete(key) : (stamps.add(key), toast(`📍 ${r.stops[+st.dataset.stamp][0]} 集章成功！`));
+    store.set('stamps', [...stamps]); renderTabs();
+    $$('#routeView .stop')[+st.dataset.stamp].classList.toggle('stamped', stamps.has(key));
+    selectStop(+st.dataset.stamp); renderStampBar();
+  }
+  if (e.target.id === 'walkPlay') walk();
+});
+let walkT = null;
+function stopWalk() { clearInterval(walkT); walkT = null; const p = $('#walkPlay'); if (p) p.textContent = '▶ 沿線走一趟'; }
+function walk() {
+  if (walkT) return stopWalk();
+  selectStop(0); $('#walkPlay').textContent = '⏸ 暫停';
+  walkT = setInterval(() => { if (curStop >= ROUTES[curRoute].stops.length - 1) return stopWalk(); selectStop(curStop + 1); }, 1600);
+}
+$('#stampReset').onclick = () => { if (!stamps.size || !confirm('確定清除所有集章紀錄？')) return; stamps.clear(); store.set('stamps', []); renderTabs(); renderRoute(); };
+addEventListener('resize', () => selectStop(curStop));
+renderTabs(); renderRoute();
+
+/* trivia quiz */
+const QUIZ = [
+  { q: '① 百餘年前興建台北城，城牆石材多取自哪裡？', o: ['陽明山', '北投、唭哩岸一帶', '基隆港', '從中國運來'], a: 1, t: '台北城的石頭，從唭哩岸來', d: '百餘年前興建台北城，城牆石材多取自北投、唭哩岸一帶，由石匠就地開採後運進城內。如今唭哩岸站旁的展示牆，仍保存這段記憶。' },
+  { q: '② 1904 年前後總督府拆除城牆，原址闢建成了什麼？', o: ['捷運板南線', '三線路', '中華商場', '鐵路'], a: 1, t: '城牆拆了，變成今天的忠孝西路', d: '1904 年前後，總督府拆除城牆，於原址闢建「三線路」。周添旺作詞、鄧雨賢作曲的《月夜愁》唱的正是這條路，至今翻唱不斷。今天的忠孝西路、中華路、愛國西路與中山南路，都沿舊城牆線而建。' },
+  { q: '③ 台北城現存四座城門，哪一座大致維持原貌？', o: ['東門', '南門', '小南門', '北門'], a: 3, t: '四座現存城門，只有一座保留原貌', d: '台北城原有五座城門，現存北門、東門、南門與小南門。其中僅北門大致維持原貌，其餘三座於 1966 年改建為今日樣貌。下次經過城門，不妨多看一眼。熟悉的城門，其實藏著不同時代的痕跡！' }
+];
+$('#quiz').innerHTML = QUIZ.map((x, i) => `<div class="q" data-q="${i}"><div class="qt">${x.q}</div><div class="opts">${x.o.map((o, j) => `<button data-o="${j}">${o}</button>`).join('')}</div><div class="ans"><b>${x.t}</b><br>${x.d}</div></div>`).join('');
+$('#quiz').addEventListener('click', e => {
+  const b = e.target.closest('[data-o]'); if (!b) return;
+  const q = b.closest('.q'), x = QUIZ[+q.dataset.q];
+  if (+b.dataset.o === x.a) { b.classList.add('right'); q.classList.add('done'); $$('button', q).forEach(k => k.disabled = true); }
+  else { b.classList.add('wrong'); b.disabled = true; }
+});
+
+/* ================= P02 mountains ================= */
+const CHECKS = [
+  ['出發前', ['確認步道是否因施工或颱風管制。', '備妥水、乾糧、防滑鞋、雨具與行動電源。']],
+  ['在山上', ['走既有步道，不抄捷徑與留垃圾。', '秋季防虎頭蜂：不噴香水、不揮打、不進草叢；遇見請低身安靜退離 50–100 公尺。']],
+  ['遇到危險時', ['保持冷靜撥打 119，並提供手機上的定位座標。', '留在原地，不要亂走、節省體力。']]
+];
+const checked = new Set(store.get('checks', []));
+$('#checklist').innerHTML = CHECKS.map(([h, items], gi) => `<h4>${h}</h4>${items.map((t, ii) => { const k = gi + '-' + ii; return `<label><input type="checkbox" data-k="${k}" ${checked.has(k) ? 'checked' : ''}><span>${t}</span></label>`; }).join('')}`).join('<hr style="border:none;border-top:1px solid #ccc;margin:6px 0">');
+function updReady() { const n = checked.size; $('#readyMeter').style.width = n / 6 * 100 + '%'; $('#readyTxt').textContent = n === 6 ? '6/6 ✅ 出發！' : n + '/6'; }
+$('#checklist').addEventListener('change', e => { const k = e.target.dataset.k; e.target.checked ? checked.add(k) : checked.delete(k); store.set('checks', [...checked]); updReady(); });
+updReady();
+
+const TRAILS = [
+  ['貴子坑步道', 1, 1, '捷運北投站', '轉乘公車', '看地質景觀', 'N', 'var(--c-sl)'],
+  ['陽明山國家公園二子坪步道', 1, 1, '捷運劍潭、北投站', '轉乘公車', '親子初學者', 'N', 'var(--c-sl)'],
+  ['竹子湖水車寮步道', 1, 1, '捷運石牌、北投站', '轉乘公車', '賞景、散步', 'N', 'var(--c-sl)'],
+  ['七星山步道', 1, 3, '捷運劍潭、北投站', '轉乘公車', '三條路線，從入門到進階都適合', 'N', 'linear-gradient(180deg,var(--c-sl) 50%,var(--c-dt) 50%)'],
+  ['半嶺水圳步道', 1, 1, '捷運北投站', '轉乘公車', '森林散步', 'N', 'var(--c-sl)'],
+  ['十八拐圳步道', 2, 2, '捷運石牌站', '轉乘公車', '走自然山徑', 'N', 'var(--c-bt)'],
+  ['坪頂古圳步道', 2, 2, '捷運劍潭站', '轉乘公車', '賞古圳', 'N', 'var(--c-bt)'],
+  ['金面山親山步道', 3, 3, '捷運西湖站', '', '攀岩感', 'S', 'var(--c-dt)'],
+  ['象山峰', 3, 3, '捷運象山站', '', '練腿力、看夜景', 'S', 'var(--c-dt)'],
+  ['虎山親山步道', 2, 2, '捷運後山埤站', '', '練體力、看市景', 'S', 'var(--c-bt)'],
+  ['貓空樟樹步道', 1, 1, '捷運動物園站', '轉乘貓空纜車', '初學者', 'S', 'var(--c-sl)'],
+  ['仙跡岩步道', 1, 1, '捷運景美站', '轉乘公車', '賞景、散步', 'S', 'var(--c-sl)']
+];
+const starColor = n => n === 1 ? 'var(--c-sl)' : n === 2 ? 'var(--c-bt)' : 'var(--c-dt)';
+$('#trails').innerHTML = TRAILS.map(([n, lo, hi, mrt, tr, fit, rg, tc], i) => `
+  <article class="trail" data-i="${i}" data-lo="${lo}" data-hi="${hi}" data-rg="${rg}" style="--tc:${tc.startsWith('linear') ? 'var(--c-sl)' : tc}">
+        <a class="nm" style="background:${tc};text-decoration:none" href="${gmap(n)}" target="_blank" rel="noopener">${n}</a>
+    <div class="stars">${lo === hi ? `<span style="color:${starColor(lo)}">${'★'.repeat(lo)}</span>` : `<span style="color:${starColor(lo)}">${'★'.repeat(lo)}</span><span style="color:#999"> - </span><span style="color:${starColor(hi)}">${'★'.repeat(hi)}</span>`}</div>
+    <div class="mrt">🚇 ${mrt}</div>${tr ? `<div class="muted">${tr}</div>` : ''}
+    <div class="fit">適合：${fit}</div><span class="rg">${rg === 'N' ? '陽明山・北區' : '市區・南區郊山'}</span>
+  </article>`).join('');
+let lv = 0, rgF = 'all';
+function filterTrails() {
+  const q = $('#trailQ').value.trim();
+  $$('.trail').forEach(el => {
+    const t = TRAILS[+el.dataset.i];
+    const okLv = !lv || (lv >= +el.dataset.lo && lv <= +el.dataset.hi);
+    const okRg = rgF === 'all' || el.dataset.rg === rgF;
+    const okQ = !q || (t[0] + t[3] + t[4] + t[5]).includes(q);
+    el.classList.toggle('hide', !(okLv && okRg && okQ));
+  });
+}
+$$('[data-lv]').forEach(b => b.onclick = () => { lv = +b.dataset.lv; $$('[data-lv]').forEach(x => x.classList.toggle('on', x === b)); filterTrails(); });
+$$('[data-rg]').forEach(b => b.onclick = () => { rgF = b.dataset.rg; $$('[data-rg]').forEach(x => x.classList.toggle('on', x === b)); filterTrails(); });
+$('#trailQ').oninput = filterTrails;
+$('#pickTrail').onclick = () => {
+  const vis = $$('.trail:not(.hide)'); if (!vis.length) return toast('沒有符合條件的步道');
+  $$('.trail.pick').forEach(x => x.classList.remove('pick'));
+  const p = vis[rnd(vis.length - 1)]; p.classList.add('pick'); p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  toast('今天就去：' + TRAILS[+p.dataset.i][0] + '！');
+};
+
+/* ================= P03-04 running ================= */
+const DAYS = ['一', '二', '三', '四', '五', '六', '日'];
+let week = store.get('week', [0, 0, 0, 0, 0, 0, 0]);
+$('#days').innerHTML = DAYS.map((d, i) => `<div class="day"><b>週${d}</b><div class="bar" data-d="${i}" title="點擊歸零"><i></i></div><div class="m"></div><button data-add="${i}">+30</button></div>`).join('');
+function updWeek() {
+  const tot = week.reduce((a, b) => a + b, 0), C = 389.6;
+  $$('#days .day').forEach((el, i) => { $('i', el).style.height = Math.min(100, week[i] / 90 * 100) + '%'; $('.m', el).textContent = week[i] + ' 分'; });
+  $('#weekMin').textContent = tot;
+  $('#ring150').style.strokeDashoffset = C * (1 - Math.min(1, tot / 150));
+  $('#ring300').style.strokeDashoffset = C * (1 - Math.min(1, tot / 300));
+  $('#whoMsg').textContent = tot === 0 ? '點「+30」記下今天的活動，目標每週 150–300 分鐘。'
+    : tot < 150 ? `有動總比沒動好！再 ${150 - tot} 分鐘就達到 WHO 建議下限。`
+    : tot < 300 ? `👏 已達 WHO 建議 150 分鐘！挑戰 300 分鐘還差 ${300 - tot} 分。`
+    : '🏆 本週已達 300 分鐘，太強了！記得適度休息。';
+  store.set('week', week);
+}
+$('#days').addEventListener('click', e => {
+  const a = e.target.closest('[data-add]'); if (a) { week[+a.dataset.add] = Math.min(240, week[+a.dataset.add] + 30); updWeek(); }
+  const b = e.target.closest('.bar'); if (b) { week[+b.dataset.d] = 0; updWeek(); }
+});
+updWeek();
+
+const RUNS = [
+  { n: '老地方觀機平台', type: 'trail', km: 5, dl: '往返約5公里', st: '捷運劍潭站2號出口', d: '可近距離看飛機起降，也能將台北盆地與基隆河盡收眼底，心也會跟著開闊起來喔！', img: [4, '925,295,415,265'], p: [200, 250], path: 'M200 250 Q190 285 170 300' },
+  { n: '基隆河右岸', sub: '彩虹橋－大直橋', type: 'run', km: 7, dl: '單趟約7公里', st: '捷運松山站1或5號出口', d: '河岸視野開闊，彩虹橋入夜會發光！跑完還能順遊饒河夜市。', img: [5, '482,295,455,265'], p: [355, 370], path: 'M355 370 Q372 335 352 300 Q332 270 300 262' },
+  { n: '大安森林公園', type: 'run', km: 2.4, loop: true, dl: '一圈約2.4公里', st: '捷運大安森林公園站1至6號出口', d: '樹蔭多、交通方便，午休或下班都能輕鬆跑一圈。', img: [4, '830,893,415,265'], p: [228, 458], path: 'M215 445 Q240 435 246 458 Q244 480 222 478 Q206 468 215 445' },
+  { n: '公館水岸公園', type: 'run', km: 5, loop: true, dl: '一圈5公里', st: '捷運公館站4號出口', d: '俗稱「國手之道」，是奧運國手張嘉哲推薦的跑步路線，也孕育不少後起之秀。交通方便、路線平緩，路程也能自由安排！', img: [4, '830,1460,415,265'], p: [168, 520], path: 'M168 520 Q190 548 186 585' },
+  { n: '四獸山縱走', type: 'trail', km: 5, dl: '總長約5公里，後山埤站結束', st: '捷運象山站2號出口', d: '一次蒐集四座郊山！一路穿越象山、獅山、豹山與虎山，還能用不同角度欣賞台北101。', img: [5, '775,955,415,265'], p: [355, 470], path: 'M355 470 Q398 470 402 438 Q404 408 382 395' },
+  { n: '富陽生態公園－福州山', type: 'trail', km: 2.5, loop: true, dl: '一圈約2.5公里', st: '捷運麟光站', d: '城市裡的生態秘境，沿途滿滿芬多精，登上福州山還能遠眺台北101。', img: [5, '680,1540,495,265'], p: [300, 510], path: 'M300 505 Q322 500 324 522 Q318 548 296 544 Q282 528 300 505' }
+];
+const DISTS = [
+  ['北投', 'M120 40 L215 20 L250 70 L236 140 L190 170 L150 190 L110 160 L88 110 Z', 160, 105],
+  ['士林', 'M215 20 L310 30 L345 95 L330 165 L300 230 L240 245 L200 230 L190 170 L236 140 L250 70 Z', 270, 130],
+  ['內湖', 'M330 165 L420 170 L500 205 L510 270 L460 300 L390 320 L360 300 L330 270 L300 230 Z', 420, 245],
+  ['南港', 'M460 300 L510 270 L560 300 L560 380 L500 420 L440 405 L420 370 L390 320 Z', 490, 355],
+  ['松山', 'M300 230 L330 270 L360 300 L390 320 L380 380 L300 390 L285 330 Z', 330, 330],
+  ['中山', 'M200 230 L240 245 L300 230 L285 330 L300 390 L215 390 L200 330 L190 280 Z', 240, 320],
+  ['大同', 'M150 250 L190 280 L200 330 L215 390 L150 395 L135 330 Z', 170, 350],
+  ['信義', 'M300 390 L380 380 L420 370 L440 405 L420 460 L340 480 L300 440 Z', 360, 425],
+  ['大安', 'M215 390 L300 390 L300 440 L340 480 L300 500 L240 500 L200 470 L205 430 Z', 268, 492],
+  ['中正', 'M150 395 L215 390 L205 430 L200 470 L170 500 L140 470 L150 435 Z', 175, 450],
+  ['萬華', 'M95 380 L135 330 L150 395 L150 435 L140 470 L110 490 L80 450 Z', 110, 430],
+  ['文山', 'M170 500 L200 470 L240 500 L300 500 L340 480 L420 460 L440 520 L400 600 L320 625 L250 600 L210 560 Z', 330, 570]
+];
+let selRun = 0; const runOn = { run: true, trail: true };
+const rc = t => t === 'run' ? 'var(--olive)' : 'var(--salmon)';
+function drawMap() {
+  const svg = $('#runmap');
+  svg.innerHTML = DISTS.map(([n, d]) => `<path class="dist" d="${d}"/>`).join('') +
+    `<path class="river" d="M70 200 Q120 240 140 300 Q130 350 110 420 Q95 470 140 520 Q190 560 230 580"/>
+     <path class="river" d="M140 300 Q200 280 250 268 Q320 260 360 300 Q390 340 360 360 Q420 330 520 310"/>
+     <path class="river" d="M230 580 Q300 590 380 560 Q430 540 460 520"/>` +
+    DISTS.map(([n, , x, y]) => `<text class="dlabel" x="${x}" y="${y}">${n}區</text>`).join('') +
+    RUNS.map((r, i) => `<g data-run="${i}" class="${runOn[r.type] ? '' : 'dim'}"><path class="rt ${i === selRun ? 'sel' : ''}" d="${r.path}" stroke="${rc(r.type)}"/>
+      <g class="pin" transform="translate(${r.p[0]},${r.p[1]})"><circle r="${i === selRun ? 10 : 7}" fill="${r.type === 'run' ? '#8F8340' : '#D9535A'}" stroke="#fff" stroke-width="3"/>
+      <text x="12" y="-10" paint-order="stroke" stroke="#fff" stroke-width="4">${r.n.split('－')[0]}</text></g></g>`).join('');
+}
+function showRun(i) {
+  selRun = i; const r = RUNS[i];
+  $('#rcard').innerHTML = `<div class="rcard" style="--rc:${r.type === 'run' ? 'var(--olive)' : 'var(--salmon)'}">
+    <div class="dist">${r.dl}</div>
+    <div class="hd"><span>${r.n}${r.sub ? `<small>（${r.sub}）</small>` : ''}</span><small>${r.type === 'run' ? '跑者路線' : '越野跑初階'}</small></div>
+    <div class="crop-slot"></div>
+    <div class="bd">${r.d}<div class="meta"><span>🚇 ${r.st}</span><span>📏 ${r.km} km${r.loop ? '／圈' : ''}</span>
+    <a href="${gmap(r.n.split('－')[0])}" target="_blank" rel="noopener" style="color:#fff"><span>🗺 地圖</span></a></div>
+    <div style="display:flex;gap:8px;margin-top:12px"><button class="btn ghost" data-step="-1">← 上一條</button><button class="btn ghost" data-step="1">下一條 →</button></div></div></div>`;
+  $('#rcard .crop-slot').replaceWith(crop(r.img[0], r.img[1]));
+  drawMap(); paceTable();
+}
+$('#runmap').addEventListener('click', e => { const g = e.target.closest('[data-run]'); if (g) showRun(+g.dataset.run); });
+$('#rcard').addEventListener('click', e => {
+  const b = e.target.closest('[data-step]'); if (!b) return;
+  const vis = RUNS.map((r, i) => i).filter(i => runOn[RUNS[i].type]); if (!vis.length) return;
+  const k = vis.indexOf(selRun); showRun(vis[(k + +b.dataset.step + vis.length) % vis.length]);
+});
+$$('.legend [data-type]').forEach(b => b.onclick = () => {
+  runOn[b.dataset.type] = !runOn[b.dataset.type]; b.classList.toggle('on', runOn[b.dataset.type]); drawMap(); paceTable();
+});
+const fmt = s => `${Math.floor(s / 60)}'${String(Math.round(s % 60)).padStart(2, '0')}"`;
+const fmtT = s => { s = Math.round(s); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60); return h ? `${h} 小時 ${m} 分` : `${m} 分 ${String(s % 60).padStart(2, '0')} 秒`; };
+function paceTable() {
+  const p = +$('#pace').value; $('#paceTxt').textContent = fmt(p);
+  $('#paceTable').innerHTML = RUNS.map((r, i) => runOn[r.type] ? `<tr class="${i === selRun ? 'sel' : ''}"><td>${r.type === 'run' ? '🟫' : '🟥'} ${r.n}</td><td class="muted">${r.km} km</td><td>${fmtT(r.km * p * (r.type === 'trail' ? 1.25 : 1))}</td></tr>` : '').join('') +
+    `<tr><td colspan="3" class="muted" style="border:none">越野路線含爬升，以平地配速 ×1.25 估算。</td></tr>`;
+}
+$('#pace').oninput = paceTable;
+showRun(0);
+
+/* ================= P05 station ================= */
+const SVCS = [['🎒', '智慧寄物', '包包、公事包有地方放，下班直接出發。'], ['👕', '更衣', '明亮、安全的更衣空間，上班服換成運動服。'], ['🚿', '梳洗', '跑完、騎完車沖洗整理，清爽赴約或進辦公室。'], ['👟', '借用裝備', '來到驛站借慢跑鞋，臨時起意也能動起來。']];
+$('#services').innerHTML = SVCS.map(s => `<div class="svc" tabindex="0"><div class="ic">${s[0]}</div><b>${s[1]}</b><p>${s[2]}</p></div>`).join('');
+$('#services').addEventListener('click', e => { const s = e.target.closest('.svc'); if (s) s.classList.toggle('open'); });
+const STORIES = [
+  { t: '☀️ 早上：騎 YouBike 通勤', x: 135, caps: ['騎 <em>YouBike</em> 通勤', '滿頭大汗地來到<em>運動驛站</em>', '在<em>運動驛站</em>梳洗整理', '清爽舒適地進入辦公室'] },
+  { t: '🌙 下班：說跑就跑', x: 725, caps: ['下班了', '來到<em>運動驛站</em>借慢跑鞋', '快樂的慢跑時間', '回到<em>運動驛站</em>還鞋、梳洗'] }
+];
+$('#stories').innerHTML = STORIES.map((s, i) => `<div class="story" data-st="${i}"><h4>${s.t}<button class="btn ghost" data-auto style="padding:0 10px;font-size:13px">▶ 自動播放</button></h4>
+  <div class="stage"></div><div class="cap"></div><div class="steps">${s.caps.map((_, j) => `<button data-k="${j}">${j + 1}</button>`).join('')}</div></div>`).join('');
+$$('.story').forEach((el, i) => {
+  const s = STORIES[i], st = $('.stage', el);
+  [[0, 0], [1, 0], [0, 1], [1, 1]].forEach(([cx, cy]) => st.appendChild(crop(6, `${s.x + cx * 277.5},${707 + cy * 277.5},277.5,277.5`)));
+  const show = k => { el._k = k; $$('.crop', st).forEach((c, j) => c.classList.toggle('on', j === k)); $$('.steps button', el).forEach((b, j) => b.classList.toggle('on', j === k)); $('.cap', el).innerHTML = `${k + 1}. ${s.caps[k]}`; };
+  show(0);
+  el.addEventListener('click', e => {
+    const b = e.target.closest('[data-k]'); if (b) { clearInterval(el._t); el._t = null; $('[data-auto]', el).textContent = '▶ 自動播放'; show(+b.dataset.k); }
+    if (e.target.closest('[data-auto]')) {
+      if (el._t) { clearInterval(el._t); el._t = null; e.target.textContent = '▶ 自動播放'; return; }
+      e.target.textContent = '⏸ 暫停'; el._t = setInterval(() => show((el._k + 1) % 4), 1800);
+    }
+  });
+  st.addEventListener('click', () => show((el._k + 1) % 4));
+});
+
+const FACETS = [
+  ['心理抽離', 'Detachment', '下班後，我能把工作暫時放下、不去想它'],
+  ['放鬆', 'Relaxation', '下班後，我有時間讓身心真正放鬆'],
+  ['時間掌控感', 'Control', '下班後，我能自己決定要做什麼、怎麼安排時間'],
+  ['精通', 'Mastery', '下班後，我會做些有挑戰、能學到新東西的事']
+];
+let rec = store.get('rec', [3, 3, 3, 3]);
+$('#facets').innerHTML = FACETS.map((f, i) => `<div class="facet ${i === 2 ? 'key' : ''}"><div class="top"><b>${f[0]} <span>${f[1]}</span></b><b class="val">${rec[i]}</b></div>
+  <div class="muted">${f[2]}</div><input type="range" min="1" max="5" value="${rec[i]}" data-f="${i}" aria-label="${f[0]}"></div>`).join('');
+function drawRadar() {
+  const R = 100, pt = (i, v) => { const a = -Math.PI / 2 + i * Math.PI / 2; return [Math.cos(a) * R * v / 5, Math.sin(a) * R * v / 5]; };
+  let g = '';
+  for (let l = 1; l <= 5; l++) g += `<polygon points="${[0, 1, 2, 3].map(i => pt(i, l).join(',')).join(' ')}" fill="none" stroke="#e5e5e5"/>`;
+  [0, 1, 2, 3].forEach(i => { const [x, y] = pt(i, 5); g += `<line x1="0" y1="0" x2="${x}" y2="${y}" stroke="#e5e5e5"/>`; });
+  g += `<polygon points="${rec.map((v, i) => pt(i, v).join(',')).join(' ')}" fill="rgba(232,100,44,.3)" stroke="#E8642C" stroke-width="3"/>`;
+  rec.forEach((v, i) => { const [x, y] = pt(i, v); g += `<circle cx="${x}" cy="${y}" r="5" fill="#E8642C"/>`; });
+  const lp = [[0, -118], [118, 5], [0, 128], [-118, 5]];
+  FACETS.forEach((f, i) => g += `<text x="${lp[i][0]}" y="${lp[i][1]}" text-anchor="middle" ${i === 2 ? 'fill="#C94E1A"' : ''}>${f[0]}</text>`);
+  $('#radar').innerHTML = g;
+  const lo = rec.indexOf(Math.min(...rec)), avg = rec.reduce((a, b) => a + b) / 4;
+  const tips = ['試著下班後關掉工作通知，用一段散步或跑步當作「下班儀式」，幫大腦切換頻道。', '每天留 30 分鐘給自己：河濱散步、泡個溫泉，都是很好的放鬆方式。', '時間掌控感是關鍵！把運動驛站當成下班路上的一站，不必特別安排，就能多出自己的時間。', '挑一條新步道或文化徑，給自己一點小挑戰——爬上象山、集滿一條文化徑的印章！'];
+  $('#recTip').innerHTML = `${avg >= 4 ? '👍 你的恢復狀態不錯！' : '💡 '}最需要補強的是「<b>${FACETS[lo][0]}</b>」：${tips[lo]}`;
+}
+$('#facets').addEventListener('input', e => { const i = +e.target.dataset.f; rec[i] = +e.target.value; $$('.facet .val')[i].textContent = rec[i]; store.set('rec', rec); drawRadar(); });
+drawRadar();
+
+/* ================= P06 vision: dot → line → area ================= */
+const DOTS = [[30, 150], [70, 110], [60, 60], [120, 40], [150, 95], [130, 150], [190, 130], [220, 70], [210, 170]];
+const LINKS = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 1], [4, 5], [5, 6], [6, 7], [6, 8]];
+const HUBS = [4, 6, 1];
+let mode = 0;
+function drawDLF() {
+  let g = `<path d="M18 160 Q20 90 55 50 Q110 18 170 35 Q238 50 240 120 Q236 188 175 188 Q90 192 18 160Z" fill="#FBE3D6" opacity="${mode === 2 ? 1 : 0}"/>`;
+  LINKS.forEach(([a, b]) => { const [x1, y1] = DOTS[a], [x2, y2] = DOTS[b]; g += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#E8642C" stroke-width="4" stroke-linecap="round" stroke-dasharray="120" stroke-dashoffset="${mode >= 1 ? 0 : 120}"/>`; });
+  DOTS.forEach(([x, y], i) => {
+    const hub = mode === 2 && HUBS.includes(i);
+    g += `<circle cx="${x}" cy="${y}" r="${hub ? 13 : 8}" fill="${hub ? '#1F2B4A' : '#E8642C'}" stroke="#fff" stroke-width="3"/>`;
+    if (hub) g += `<text x="${x}" y="${y + 4}" text-anchor="middle" font-size="11" fill="#fff">驛</text>`;
+  });
+  $('#dlf').innerHTML = g;
+  $$('[data-mode]').forEach(b => b.classList.toggle('on', +b.dataset.mode === mode));
+  $('#dlfTxt').textContent = ['點：老街、廟宇、步道各自分散，「有很多景點」。', '線：首都文化徑 × 山林徑，把景點串成可以一路走下去的路線。', '面：加上運動驛站與登山觀光中心的服務，變成「能去很多地方」的生活圈。'][mode];
+}
+$$('[data-mode]').forEach(b => b.onclick = () => { mode = +b.dataset.mode; drawDLF(); });
+$('#dlfPlay').onclick = () => { mode = 0; drawDLF(); setTimeout(() => { mode = 1; drawDLF(); }, 900); setTimeout(() => { mode = 2; drawDLF(); }, 1900); };
+drawDLF();
+
+/* ================= P07 policy cloud ================= */
+const PILLARS = [
+  { k: 'HABITAT', z: '空間', c: 'var(--p-hab)', items: ['都市微森林', '首都文化徑', '婚育宅與青年宅', '亞洲第一登山觀光城', '兩河流域計劃', '圓山超級市民運動中心'] },
+  { k: 'EMPOWER', z: '培力與機會', c: 'var(--p-emp)', items: ['中年轉職與創業支持', '市政智庫：北士科台北研究院', 'AI訂閱與課程補助', '市府採購支持新創', '城市青年基金：22歲領50萬'] },
+  { k: 'ACCOMPANY', z: '陪伴', c: 'var(--p-acc)', items: ['發放單身者運動幣及文化幣', '親子同行卡', '家長版1999', '45~65歲心理諮商補助'] },
+  { k: 'TIME', z: '時間', c: 'var(--p-time)', items: ['尖峰分流', '運動驛站', 'TPASS納入共享電動機車', '週週有臨托', '補助企業實施彈性工時'] },
+  { k: 'RESILIENCE', z: '韌性與安心', c: 'var(--p-res)', items: ['老宅延壽', '通學區零死亡', '行動服務團', '補助50歲以上皮蛇疫苗', '0~6歲腸病毒疫苗免費', '台北無限城論壇', '新設夜間市長、設計長'] }
+];
+const RELATED = { '首都文化徑': '#p1', '亞洲第一登山觀光城': '#p2', '運動驛站': '#p5' };
+let pf = -1, relOn = false;
+$('#pillars').innerHTML = `<button class="chip on" data-p="-1" style="--pc:var(--orange)">全部</button>` +
+  PILLARS.map((p, i) => `<button class="chip" data-p="${i}" style="--pc:${p.c}">${p.k} ${p.z} <small>${p.items.length}</small></button>`).join('') +
+  `<button class="chip" id="relBtn" style="--pc:var(--orange)">✦ 本期相關</button>`;
+const words = [];
+PILLARS.forEach((p, i) => {
+  words.push({ p: i, t: p.k, cls: 'k', s: 34 + (i % 2) * 6 });
+  words.push({ p: i, t: p.z, cls: 'z', s: 30 });
+  p.items.forEach((t, j) => words.push({ p: i, t, cls: '', s: 17 + ((j * 7 + i * 3) % 4) * 3 }));
+});
+const order = words.map((w, i) => [w, (i * 37) % words.length]).sort((a, b) => a[1] - b[1]).map(a => a[0]);
+order.splice(Math.floor(order.length / 2), 0, { heart: true });
+$('#cloud').innerHTML = order.map(w => w.heart ? `<span class="heart" aria-hidden="true">♥</span>` :
+  `<button class="w ${w.cls}" data-pp="${w.p}" style="--pc:${PILLARS[w.p].c};font-size:${w.s}px">${w.t}</button>`).join('');
+function updCloud() {
+  $$('#cloud .w').forEach(w => {
+    const isRel = w.textContent in RELATED;
+    w.classList.toggle('off', (pf >= 0 && +w.dataset.pp !== pf) || (relOn && !isRel));
+    w.classList.toggle('rel', relOn && isRel);
+  });
+  $$('#pillars [data-p]').forEach(b => b.classList.toggle('on', +b.dataset.p === pf));
+  $('#relBtn').classList.toggle('on', relOn);
+}
+$('#pillars').addEventListener('click', e => {
+  const b = e.target.closest('[data-p]');
+  if (b) { pf = +b.dataset.p; relOn = false; updCloud(); const p = PILLARS[pf]; const pi = $('#pinfo');
+    if (p) { pi.style.setProperty('--pc', p.c); pi.innerHTML = `<b>${p.k}・${p.z}</b>（${p.items.length} 項）：${p.items.join('、')}`; } }
+  if (e.target.closest('#relBtn')) { relOn = !relOn; pf = -1; updCloud();
+    if (relOn) { const pi = $('#pinfo'); pi.style.setProperty('--pc', 'var(--orange)'); pi.innerHTML = '<b>✦ 本期相關</b>：<a href="#p1">首都文化徑</a>（主題文化徑）、<a href="#p2">亞洲第一登山觀光城</a>（山林徑、登山觀光中心）、<a href="#p5">運動驛站</a>。'; } }
+});
+$('#cloud').addEventListener('click', e => {
+  const w = e.target.closest('.w'); if (!w) return;
+  const p = PILLARS[+w.dataset.pp], pi = $('#pinfo'), rel = RELATED[w.textContent];
+  pi.style.setProperty('--pc', p.c);
+  pi.innerHTML = `<b>${w.textContent}</b>　屬於 <b>${p.k}・${p.z}</b>` + (rel ? `　<button class="btn ghost" data-go="${rel}" style="padding:0 10px;font-size:13px">看本期內容 →</button>` : '');
+});
+$('#slogan').innerHTML = '用心，台北順起來!!'.split('').map(c => `<span>${c}</span>`).join('');
+
+/* ================= lightbox ================= */
+let lbN = 1;
+function openLB(n) { lbN = n; $('#lbImg').src = IMG(n); $('#lbImg').alt = `順報原版第 ${n} 頁`; $('#lbNo').textContent = `${n} / 8`; $('#lb').classList.add('open'); $('#lbClose').focus(); }
+const closeLB = () => $('#lb').classList.remove('open');
+$('#lbPrev').onclick = () => openLB(lbN > 1 ? lbN - 1 : 8);
+$('#lbNext').onclick = () => openLB(lbN < 8 ? lbN + 1 : 1);
+$('#lbClose').onclick = closeLB;
+$('#lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLB(); });
+addEventListener('keydown', e => {
+  if (!$('#lb').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') $('#lbPrev').click(); if (e.key === 'ArrowRight') $('#lbNext').click();
+});
+})();
+</script>
+</body>
+</html>
