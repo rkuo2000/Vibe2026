@@ -36,7 +36,7 @@ use the uploaded Prompt template, and study [https://rkuo2000.github.io/EdgeAI-A
 #### HTML : [AMEBA ROBOT ODYSSEY · AmebaPro2 × 邊緣 AI 機器人學習航線.html](https://github.com/rkuo2000/Vibe2026/blob/main/AMEBA%20ROBOT%20ODYSSEY%20%C2%B7%20AmebaPro2%20%C3%97%20%E9%82%8A%E7%B7%A3%20AI%20%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%AD%B8%E7%BF%92%E8%88%AA%E7%B7%9A.html)
 
 ---
-### [BandLab｜半導體能隙互動實驗室]()
+### [半導體能隙互動]()
 `claude.ai` `Opus 5.5 Medium` <br>
 
 #### Prompt: 
@@ -51,7 +51,7 @@ use the uploaded Prompt template, and study [https://rkuo2000.github.io/EdgeAI-A
 5.電⼦躍遷動畫
 6.互動測驗
 ```
-#### HTML : [BandLab｜半導體能隙互動實驗室 v2.html](https://github.com/rkuo2000/Vibe2026/blob/main/BandLab%EF%BD%9C%E5%8D%8A%E5%B0%8E%E9%AB%94%E8%83%BD%E9%9A%99%E4%BA%92%E5%8B%95%E5%AF%A6%E9%A9%97%E5%AE%A4%20v2.html)
+#### HTML : [BandLab｜半導體能隙互動.html](https://github.com/rkuo2000/Vibe2026/blob/main/%E5%8D%8A%E5%B0%8E%E9%AB%94%E8%83%BD%E9%9A%99%E4%BA%92%E5%8B%95.html)
 
 ---
 ## Progressive Web App
