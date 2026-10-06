@@ -69,6 +69,7 @@ study controllights.md, generate a BLE smart LED Curtain controller in html
 
 ---
 ### [Dot-Matrix Display Panel](https://rkuo2000.github.io/vibe-iPixelcolor/)
+`claude` `Opus 5.5 Medium` <br>
 
 #### Prompt
 ```
