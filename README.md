@@ -3,7 +3,7 @@
 ---
 ## Interactive Webpage
 
-### [SoonDaily 順報]()
+### [SoonDaily 順報](https://rkuo2000.github.io/SoonDaily)
 `claude.ai` `Opus 5.5 Medium` <br>
 
 #### Prompt
